@@ -1,7 +1,12 @@
 ﻿#pragma once
 #include <vector>
 
-class StatModifier;
+class StatModifier; // forward declaration
+
+/// <summary>
+/// Stat class is used to define a statistique and handle multiple
+/// modifiers like equipement, boost, malus, ...
+/// </summary>
 class Stat
 {
 public:
@@ -68,12 +73,21 @@ public:
 	void UpdateModifiers();
 #pragma endregion 
 
-	float GetValue();
+	/// <summary>
+	/// Return the final value of this stat
+	/// </summary>
+	/// <returns></returns>
+	float GetValue() const;
 
 private:
 	float baseValue;
 	std::vector<StatModifier> modifiers;
 
+	/// <summary>
+	/// Sort by order this modifiers
+	/// </summary>
+	void SortModifiersByExecutionOrder();
+	
 	/// <summary>
 	/// Return the final value after all modifiers was applied
 	/// </summary>
