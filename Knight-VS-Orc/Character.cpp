@@ -11,6 +11,12 @@ Character::Character() : life(10), damageMultiplier(1.0f)
 	this->ability = nullptr;
 }
 
+Character::Character(Weapon& w, Ability& a)
+{
+	this->weapon = &w;
+	this->ability = &a;
+}
+
 Character::Character(const Character& c) : life(c.life), damageMultiplier(c.damageMultiplier), weapon(c.weapon), ability(c.ability), status(c.status)
 {
 }

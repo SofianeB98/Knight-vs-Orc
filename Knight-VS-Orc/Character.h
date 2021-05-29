@@ -19,6 +19,8 @@ public:
 	/// </summary>
 	Character();
 
+	Character(Weapon& w, Ability& a);
+	
 	/// <summary>
 	/// Copy constructor of Character Class
 	/// </summary>
