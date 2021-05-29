@@ -53,8 +53,10 @@ void Character::UpdateCharacterFields()
 	this->damageMultiplier.UpdateModifiers();
 
 	// Update Ability cooldown
+	this->ability->UpdateCooldown();
 
-
+	
+	
 	// Update Status cooldown
 	UpdateStatus();
 }
@@ -105,12 +107,13 @@ void Character::ClearStatus()
 
 void Character::UseAbility(Character& target)
 {
-	
+	this->ability->Launch(target);
 }
 
 void Character::UseWeapon(Character& target)
 {
-	
+	const float damage = this->weapon->GetDamage() * this->damageMultiplier.GetValue();
+	target.TakeDamage(damage);
 }
 
 void Character::ApplyStatus(Status* s)
