@@ -65,18 +65,18 @@ void Character::UpdateStatus()
 {
 	for (auto& st : status)
 	{
-
+		st->UpdateDurability();
 	}
 
 	// Remove all modifier with a 0 durability
-	const auto removed = std::remove_if(this->status.begin(), this->status.end(), [](Status* sm)
+	const auto removed = std::remove_if(this->status.begin(), this->status.end(), [](Status* st)
 		{
-			if (sm != nullptr)
+			if (st != nullptr)
 			{
-				if (0)
+				if (!st->IsTakingEffect())
 				{
-					delete sm;
-					sm = nullptr;
+					delete st;
+					st = nullptr;
 					return true;
 				}
 

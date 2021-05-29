@@ -49,7 +49,7 @@ public:
 	Status& operator=(Status s);
 #pragma endregion 
 
-	~Status() = default;
+	virtual ~Status() = default;
 
 #pragma region Getter
 	/// <summary>

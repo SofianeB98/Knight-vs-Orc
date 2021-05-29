@@ -30,7 +30,7 @@ public:
 	Weapon& operator=(Weapon w);
 #pragma endregion
 
-	~Weapon() = default;
+	virtual ~Weapon() = default;
 
 	/// <summary>
 	/// Return the weapon damage with applied modifier

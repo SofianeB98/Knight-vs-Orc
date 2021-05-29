@@ -35,7 +35,7 @@ public:
 	Character& operator=(Character c);
 #pragma endregion 
 
-	~Character();
+	virtual ~Character();
 
 #pragma region Character Method
 	/// <summary>

@@ -42,7 +42,7 @@ public:
 	Ability& operator=(Ability a);
 #pragma endregion
 
-	~Ability() = default;
+	virtual ~Ability() = default;
 	
 #pragma region Getter
 	/// <summary>
