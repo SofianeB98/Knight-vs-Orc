@@ -2,8 +2,6 @@
 
 #include <algorithm>
 
-#include "StatModifier.h"
-
 
 void Stat::swap(Stat& s)
 {

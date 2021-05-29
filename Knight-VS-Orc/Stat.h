@@ -1,7 +1,6 @@
 ﻿#pragma once
 #include <vector>
-
-class StatModifier; // forward declaration
+#include "StatModifier.h"
 
 /// <summary>
 /// Stat class is used to define a statistique and handle multiple
