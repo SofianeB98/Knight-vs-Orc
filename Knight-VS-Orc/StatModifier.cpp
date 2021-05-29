@@ -9,7 +9,9 @@ float StatModifier::GetValue() const
 		return this->value;
 		break;
 	case PercentMultiplier:
-		return this->value * 0.01f;
+		// Convert the value in percent to multiplier value
+		// Add 1 to handle 100% = x2, 200% x3, ...
+		return this->value * 0.01f + 1.0f;  
 		break;
 	}
 
