@@ -26,21 +26,21 @@ Ability::Ability(unsigned int _abilityCooldown, float _abilitySuccessPercent) : 
 	this->abilitySuccessPercent = _abilitySuccessPercent;
 }
 
-Ability::Ability(const Ability& a) : abilityCooldown(a.abilityCooldown), actualCooldown(a.actualCooldown), abilitySuccessPercent(a.abilitySuccessPercent)
+Ability::Ability(const Ability& _a) : abilityCooldown(_a.abilityCooldown), actualCooldown(_a.actualCooldown), abilitySuccessPercent(_a.abilitySuccessPercent)
 {
 }
 
-Ability& Ability::operator=(Ability a)
+Ability& Ability::operator=(Ability _a)
 {
-	swap(a);
+	swap(_a);
 	return *this;
 }
 
-void Ability::swap(Ability& a)
+void Ability::swap(Ability& _a)
 {
-	std::swap(this->abilityCooldown, a.abilityCooldown);
-	std::swap(this->actualCooldown, a.actualCooldown);
-	std::swap(this->abilitySuccessPercent, a.abilitySuccessPercent);
+	std::swap(this->abilityCooldown, _a.abilityCooldown);
+	std::swap(this->actualCooldown, _a.actualCooldown);
+	std::swap(this->abilitySuccessPercent, _a.abilitySuccessPercent);
 }
 
 
@@ -70,13 +70,13 @@ void Ability::UpdateCooldown()
 	--this->actualCooldown;
 }
 
-void Ability::ReduceCooldown(unsigned int reduceCount)
+void Ability::ReduceCooldown(unsigned int _reduceCount)
 {
 	// Clamp value to actual cooldown
-	if (reduceCount > this->actualCooldown)
-		reduceCount = this->actualCooldown;
+	if (_reduceCount > this->actualCooldown)
+		_reduceCount = this->actualCooldown;
 
-	this->actualCooldown -= reduceCount;
+	this->actualCooldown -= _reduceCount;
 }
 
 void Ability::ResetCooldown()
@@ -84,7 +84,7 @@ void Ability::ResetCooldown()
 	this->actualCooldown = this->abilityCooldown;
 }
 
-void Ability::Launch(Character& c)
+void Ability::Launch(Character& _c)
 {
 	if (!IsAvailable())
 	{

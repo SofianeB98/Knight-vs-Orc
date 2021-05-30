@@ -14,38 +14,27 @@ public:
 	/// <summary>
 	/// Create a default stat with base value as 0
 	/// </summary>
-	Stat()
-	{
-		baseValue = 0.0f;
-		modifiers.reserve(5);
-	}
+	Stat();
 
 	/// <summary>
 	/// Create a stat with specific base value
 	/// </summary>
 	/// <param name="_baseValue"></param>
-	Stat(float _baseValue) : baseValue(_baseValue)
-	{
-		modifiers.reserve(5);
-	}
+	Stat(float _baseValue);
 
 	/// <summary>
 	/// Copy constructor
 	/// copy all field of parameter
 	/// </summary>
-	/// <param name="s"></param>
-	Stat(const Stat& s) : baseValue(s.baseValue), modifiers(s.modifiers) {}
+	/// <param name="_s"></param>
+	Stat(const Stat& _s);
 
 	/// <summary>
 	/// = operator of stat class
 	/// </summary>
 	/// <param name="s"></param>
 	/// <returns></returns>
-	Stat& operator=(Stat s)
-	{
-		this->swap(s);
-		return *this;
-	}
+	Stat& operator=(Stat _s);
 #pragma endregion 
 
 	~Stat()
@@ -98,6 +87,6 @@ private:
 	/// Swap this class field with parameter value
 	/// </summary>
 	/// <param name="s"></param>
-	void swap(Stat& s);
+	void swap(Stat& _s);
 	
 };

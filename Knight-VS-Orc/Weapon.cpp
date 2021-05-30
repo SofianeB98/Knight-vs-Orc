@@ -5,23 +5,23 @@ Weapon::Weapon() : damage(1)
 	
 }
 
-Weapon::Weapon(float damage) : damage(damage)
+Weapon::Weapon(float _damage) : damage(_damage)
 {
 }
 
-Weapon::Weapon(const Weapon& w) : damage(w.damage)
+Weapon::Weapon(const Weapon& _w) : damage(_w.damage)
 {
 }
 
-Weapon& Weapon::operator=(Weapon w)
+Weapon& Weapon::operator=(Weapon _w)
 {
-	swap(w);
+	swap(_w);
 	return *this;
 }
 
-void Weapon::swap(Weapon& w)
+void Weapon::swap(Weapon& _w)
 {
-	std::swap(this->damage, w.damage);
+	std::swap(this->damage, _w.damage);
 }
 
 

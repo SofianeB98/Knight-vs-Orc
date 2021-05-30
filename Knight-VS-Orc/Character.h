@@ -19,20 +19,20 @@ public:
 	/// </summary>
 	Character();
 
-	Character(Weapon& w, Ability& a);
+	Character(Weapon& _w, Ability& _a);
 	
 	/// <summary>
 	/// Copy constructor of Character Class
 	/// </summary>
-	/// <param name="c"></param>
-	Character(const Character& c);
+	/// <param name="_c"></param>
+	Character(const Character& _c);
 
 	/// <summary>
 	/// = operator of character class
 	/// </summary>
 	/// <param name="c"></param>
 	/// <returns></returns>
-	Character& operator=(Character c);
+	Character& operator=(Character _c);
 #pragma endregion 
 
 	virtual ~Character();
@@ -41,22 +41,22 @@ public:
 	/// <summary>
 	/// Call this method to try to use character ability on the specific target
 	/// </summary>
-	/// <param name="target"></param>
-	virtual void UseAbility(Character& target);
+	/// <param name="_target"></param>
+	virtual void UseAbility(Character& _target);
 
 	/// <summary>
 	/// Call this method to use character weapon on the specific target
 	/// </summary>
-	/// <param name="target"></param>
-	virtual void UseWeapon(Character& target);
+	/// <param name="_target"></param>
+	virtual void UseWeapon(Character& _target);
 
 	// Call by Use Ability, but make this method public because
 	// we can imagine in a futur update, other object can apply a status
 	/// <summary>
 	/// This method apply a specific Status on this character
 	/// </summary>
-	/// <param name="target"></param>
-	virtual void ApplyStatus(Status* s);
+	/// <param name="_s"></param>
+	virtual void ApplyStatus(Status* _s);
 #pragma endregion 
 	
 	/// <summary>
@@ -93,8 +93,8 @@ protected:
 	/// <summary>
 	/// Swap this class field with parameter value
 	/// </summary>
-	/// <param name="c"></param>
-	virtual void swap(Character& c);
+	/// <param name="_c"></param>
+	virtual void swap(Character& _c);
 private:
 
 	/// <summary>

@@ -11,19 +11,19 @@ Character::Character() : life(10), damageMultiplier(1.0f)
 	this->ability = nullptr;
 }
 
-Character::Character(Weapon& w, Ability& a)
+Character::Character(Weapon& _w, Ability& _a)
 {
-	this->weapon = &w;
-	this->ability = &a;
+	this->weapon = &_w;
+	this->ability = &_a;
 }
 
-Character::Character(const Character& c) : life(c.life), damageMultiplier(c.damageMultiplier), weapon(c.weapon), ability(c.ability), status(c.status)
+Character::Character(const Character& _c) : life(_c.life), damageMultiplier(_c.damageMultiplier), weapon(_c.weapon), ability(_c.ability), status(_c.status)
 {
 }
 
-Character& Character::operator=(Character c)
+Character& Character::operator=(Character _c)
 {
-	swap(c);
+	swap(_c);
 	return *this;
 }
 
@@ -105,20 +105,20 @@ void Character::ClearStatus()
 }
 
 
-void Character::UseAbility(Character& target)
+void Character::UseAbility(Character& _target)
 {
-	this->ability->Launch(target);
+	this->ability->Launch(_target);
 }
 
-void Character::UseWeapon(Character& target)
+void Character::UseWeapon(Character& _target)
 {
 	const float damage = this->weapon->GetDamage() * this->damageMultiplier.GetValue();
-	target.TakeDamage(damage);
+	_target.TakeDamage(damage);
 }
 
-void Character::ApplyStatus(Status* s)
+void Character::ApplyStatus(Status* _s)
 {
-	this->status.emplace_back(s);
+	this->status.emplace_back(_s);
 }
 
 void Character::TakeDamage(float _damage)
@@ -127,11 +127,11 @@ void Character::TakeDamage(float _damage)
 }
 
 
-void Character::swap(Character& c)
+void Character::swap(Character& _c)
 {
-	std::swap(this->life, c.life);
-	std::swap(this->damageMultiplier, c.damageMultiplier);
-	std::swap(this->ability, c.ability);
-	std::swap(this->weapon, c.weapon);
-	std::swap(this->status, c.status);
+	std::swap(this->life, _c.life);
+	std::swap(this->damageMultiplier, _c.damageMultiplier);
+	std::swap(this->ability, _c.ability);
+	std::swap(this->weapon, _c.weapon);
+	std::swap(this->status, _c.status);
 }

@@ -38,15 +38,15 @@ public:
 	/// <summary>
 	/// Copy the parameter
 	/// </summary>
-	/// <param name="s"></param>
-	Status(const Status& s);
+	/// <param name="_s"></param>
+	Status(const Status& _s);
 
 	/// <summary>
 	/// = Operator
 	/// </summary>
-	/// <param name="s"></param>
+	/// <param name="_s"></param>
 	/// <returns></returns>
-	Status& operator=(Status s);
+	Status& operator=(Status _s);
 #pragma endregion 
 
 	virtual ~Status() = default;
@@ -75,9 +75,9 @@ public:
 	/// Trying process this status into specific character
 	/// Status process if this type == processing type
 	/// </summary>
-	/// <param name="c"></param>
-	/// <param name="processingType"></param>
-	virtual void ProcessStatus(Character& c, StatusType processingType);
+	/// <param name="_c"></param>
+	/// <param name="_processingType"></param>
+	virtual void ProcessStatus(Character& _c, StatusType _processingType);
 	
 #pragma region Durability Method
 	/// <summary>
@@ -88,8 +88,8 @@ public:
 	/// <summary>
 	/// Reduce by reduce count this actual durability
 	/// </summary>
-	/// <param name="reduceCount"></param>
-	virtual void ReduceDurability(int reduceCount);
+	/// <param name="_reduceCount"></param>
+	virtual void ReduceDurability(int _reduceCount);
 
 	/// <summary>
 	/// Set actual durability to status durability
@@ -107,8 +107,8 @@ protected:
 	/// <summary>
 	/// Swap this class field with parameter value
 	/// </summary>
-	/// <param name="s"></param>
-	virtual void swap(Status& s);
+	/// <param name="_s"></param>
+	virtual void swap(Status& _s);
 	
 private:
 };

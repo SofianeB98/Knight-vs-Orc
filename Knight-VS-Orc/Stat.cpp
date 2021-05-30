@@ -3,13 +3,30 @@
 #include <algorithm>
 
 
-void Stat::swap(Stat& s)
+void Stat::swap(Stat& _s)
 {
-	std::swap(this->baseValue, s.baseValue);
-	std::swap(this->modifiers, s.modifiers);
+	std::swap(this->baseValue, _s.baseValue);
+	std::swap(this->modifiers, _s.modifiers);
 }
 
 
+Stat::Stat() : baseValue(0.0f)
+{
+	modifiers.reserve(5);
+}
+
+Stat::Stat(float _baseValue) : baseValue(_baseValue)
+{
+	modifiers.reserve(5);
+}
+
+Stat::Stat(const Stat& _s) : baseValue(_s.baseValue), modifiers(_s.modifiers) {}
+
+Stat& Stat::operator=(Stat _s)
+{
+	this->swap(_s);
+	return *this;
+}
 
 void Stat::AddModifier(StatModifier _modifier)
 {
@@ -50,7 +67,7 @@ float Stat::CalculateRealValue() const
 	float realValue = this->baseValue;
 
 	// Process all modifiers by there type
-	for(auto& mod : this->modifiers)
+	for (auto& mod : this->modifiers)
 	{
 		switch (mod.GetModifierType())
 		{
@@ -59,9 +76,9 @@ float Stat::CalculateRealValue() const
 		case StatModifierType::Multiplier:
 			realValue *= mod.GetValue();
 			break;
-		} 
+		}
 	}
-	
+
 	return realValue;
 }
 
@@ -75,9 +92,9 @@ void Stat::UpdateModifiers()
 
 	// Remove all modifier with a 0 durability
 	const auto removed = std::remove_if(this->modifiers.begin(), this->modifiers.end(), [](StatModifier sm)
-	{
-		return sm.GetDurability() == 0;
-	});
+		{
+			return sm.GetDurability() == 0;
+		});
 
 	// "Resize" the vector to remove useless removed value
 	this->modifiers.resize(std::distance(this->modifiers.begin(), removed));

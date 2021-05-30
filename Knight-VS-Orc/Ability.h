@@ -32,14 +32,14 @@ public:
 	/// Copy constructor
 	/// </summary>
 	/// <param name="a"></param>
-	Ability(const Ability& a);
+	Ability(const Ability& _a);
 
 	/// <summary>
 	/// = operator
 	/// </summary>
 	/// <param name="a"></param>
 	/// <returns></returns>
-	Ability& operator=(Ability a);
+	Ability& operator=(Ability _a);
 #pragma endregion
 
 	virtual ~Ability() = default;
@@ -73,8 +73,8 @@ public:
 	/// <summary>
 	/// Reduce the ability by the reduce count
 	/// </summary>
-	/// <param name="reduceCount"></param>
-	virtual void ReduceCooldown(unsigned int reduceCount);
+	/// <param name="_reduceCount"></param>
+	virtual void ReduceCooldown(unsigned int _reduceCount);
 
 	/// <summary>
 	/// Reset the cooldown to ability cooldown
@@ -85,8 +85,8 @@ public:
 	/// <summary>
 	/// Trigger this ability to the specific character
 	/// </summary>
-	/// <param name="c"></param>
-	virtual void Launch(Character& c);
+	/// <param name="_c"></param>
+	virtual void Launch(Character& _c);
 	
 protected:
 	unsigned int abilityCooldown;
@@ -98,8 +98,8 @@ protected:
 	/// <summary>
 	/// Swap this class field with parameter value
 	/// </summary>
-	/// <param name="a"></param>
-	virtual void swap(Ability& a);
+	/// <param name="_a"></param>
+	virtual void swap(Ability& _a);
 	
 private:
 	

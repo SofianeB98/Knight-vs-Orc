@@ -14,20 +14,20 @@ public:
 	/// Create a weapon with the specific damage value
 	/// </summary>
 	/// <param name="damage"></param>
-	Weapon(float damage);
+	Weapon(float _damage);
 
 	/// <summary>
 	/// Copy constructor of Weapon Class
 	/// </summary>
 	/// <param name="w"></param>
-	Weapon(const Weapon& w);
+	Weapon(const Weapon& _w);
 
 	/// <summary>
 	/// = operator of wepaon class
 	/// </summary>
 	/// <param name="w"></param>
 	/// <returns></returns>
-	Weapon& operator=(Weapon w);
+	Weapon& operator=(Weapon _w);
 #pragma endregion
 
 	virtual ~Weapon() = default;
@@ -47,7 +47,7 @@ protected:
 	/// Swap this class field with parameter value
 	/// </summary>
 	/// <param name="w"></param>
-	virtual void swap(Weapon& w);
+	virtual void swap(Weapon& _w);
 private:
 	
 };

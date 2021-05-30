@@ -13,21 +13,21 @@ Status::Status(int _durability, StatusType _statusType) : statusType(_statusType
 {
 }
 
-Status::Status(const Status& s) : statusType(s.statusType), statusDurability(s.statusDurability), actualDurability(s.actualDurability)
+Status::Status(const Status& _s) : statusType(_s.statusType), statusDurability(_s.statusDurability), actualDurability(_s.actualDurability)
 {
 }
 
-Status& Status::operator=(Status s)
+Status& Status::operator=(Status _s)
 {
-	swap(s);
+	swap(_s);
 	return *this;
 }
 
-void Status::swap(Status& s)
+void Status::swap(Status& _s)
 {
-	std::swap(this->statusDurability, s.statusDurability);
-	std::swap(this->actualDurability, s.actualDurability);
-	std::swap(this->statusType, s.statusType);
+	std::swap(this->statusDurability, _s.statusDurability);
+	std::swap(this->actualDurability, _s.actualDurability);
+	std::swap(this->statusType, _s.statusType);
 }
 
 
@@ -48,9 +48,9 @@ int Status::GetActualDurability() const
 }
 
 
-void Status::ProcessStatus(Character& c, StatusType processingType)
+void Status::ProcessStatus(Character& _c, StatusType _processingType)
 {
-	if (this->statusType != processingType)
+	if (this->statusType != _processingType)
 		return;
 	
 	//Do something
@@ -64,12 +64,12 @@ void Status::UpdateDurability()
 	--this->actualDurability;
 }
 
-void Status::ReduceDurability(int reduceCount)
+void Status::ReduceDurability(int _reduceCount)
 {
-	if (reduceCount > this->actualDurability)
-		reduceCount = this->actualDurability;
+	if (_reduceCount > this->actualDurability)
+		_reduceCount = this->actualDurability;
 
-	this->actualDurability -= reduceCount;
+	this->actualDurability -= _reduceCount;
 }
 
 void Status::ResetDurability()
