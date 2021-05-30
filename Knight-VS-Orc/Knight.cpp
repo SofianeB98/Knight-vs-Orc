@@ -1,6 +1,9 @@
 ﻿#include "Knight.h"
 
-Knight::Knight() : Character(), shield(50)
+#include "Sword.h"
+#include "Charge.h"
+
+Knight::Knight() : Character(*new Sword, *new Charge), shield(50)
 {
 	this->life = { 20 };
 }

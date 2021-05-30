@@ -13,6 +13,10 @@ class Ability;
 class Character
 {
 public:
+	// Base Stats of every Character
+	Stat life;
+	Stat damageMultiplier;
+	
 #pragma region Constructor
 	/// <summary>
 	/// Default constructor of Character class
@@ -65,11 +69,7 @@ public:
 	/// </summary>
 	virtual void UpdateCharacterFields();
 	
-protected:
-	// Base Stats of every Character
-	Stat life;
-	Stat damageMultiplier;
-	
+protected:	
 	// Item & Ability of a character
 	Weapon* weapon;
 	Ability* ability;
