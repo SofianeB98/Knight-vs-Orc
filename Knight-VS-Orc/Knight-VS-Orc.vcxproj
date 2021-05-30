@@ -144,6 +144,7 @@
     <ClCompile Include="Charge.cpp" />
     <ClCompile Include="Knight-VS-Orc.cpp" />
     <ClCompile Include="Knight.cpp" />
+    <ClCompile Include="Orc.cpp" />
     <ClCompile Include="Stat.cpp" />
     <ClCompile Include="StatModifier.cpp" />
     <ClCompile Include="Status.cpp" />
@@ -156,6 +157,7 @@
     <ClInclude Include="Character.h" />
     <ClInclude Include="Charge.h" />
     <ClInclude Include="Knight.h" />
+    <ClInclude Include="Orc.h" />
     <ClInclude Include="Stat.h" />
     <ClInclude Include="StatModifier.h" />
     <ClInclude Include="Status.h" />

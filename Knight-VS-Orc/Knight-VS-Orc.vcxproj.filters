@@ -78,6 +78,9 @@
     <ClCompile Include="Status.cpp">
       <Filter>Fichiers sources\Status</Filter>
     </ClCompile>
+    <ClCompile Include="Orc.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character.h">
@@ -109,6 +112,9 @@
     </ClInclude>
     <ClInclude Include="Status.h">
       <Filter>Fichiers d%27en-tête\Status</Filter>
+    </ClInclude>
+    <ClInclude Include="Orc.h">
+      <Filter>Fichiers d%27en-tête\Characters</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
