@@ -65,10 +65,12 @@ public:
 	/// Return the final value of this stat
 	/// </summary>
 	/// <returns></returns>
-	float GetValue() const;
+	float GetValue();
 
 private:
 	float baseValue;
+	float previousValue;
+	bool isDirty;
 	std::vector<StatModifier> modifiers;
 
 	/// <summary>

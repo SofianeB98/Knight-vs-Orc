@@ -36,7 +36,7 @@ public:
 	/// Return the weapon damage with applied modifier
 	/// </summary>
 	/// <returns></returns>
-	virtual float GetDamage() const;
+	virtual float GetDamage();
 	
 protected:
 	// Store the weapon damage

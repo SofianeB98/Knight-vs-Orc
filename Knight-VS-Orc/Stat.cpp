@@ -6,21 +6,23 @@
 void Stat::swap(Stat& _s)
 {
 	std::swap(this->baseValue, _s.baseValue);
+	std::swap(this->previousValue, _s.previousValue);
+	std::swap(this->isDirty, _s.isDirty);
 	std::swap(this->modifiers, _s.modifiers);
 }
 
 
-Stat::Stat() : baseValue(0.0f)
+Stat::Stat() : baseValue(0.0f), previousValue(0.0f), isDirty(false)
 {
 	modifiers.reserve(5);
 }
 
-Stat::Stat(float _baseValue) : baseValue(_baseValue)
+Stat::Stat(float _baseValue) : baseValue(_baseValue), previousValue(_baseValue), isDirty(false)
 {
 	modifiers.reserve(5);
 }
 
-Stat::Stat(const Stat& _s) : baseValue(_s.baseValue), modifiers(_s.modifiers) {}
+Stat::Stat(const Stat& _s) : baseValue(_s.baseValue), previousValue(_s.baseValue), isDirty(_s.isDirty), modifiers(_s.modifiers) {}
 
 Stat& Stat::operator=(Stat _s)
 {
@@ -32,6 +34,10 @@ void Stat::AddModifier(StatModifier _modifier)
 {
 	// Add modifier parameter to the vector
 	this->modifiers.push_back(_modifier);
+
+	// Because we've add new modifier, this stat is dirty and have to be re calculate
+	this->isDirty = true;
+	
 	// Sort the vector by execution order
 	SortModifiersByExecutionOrder();
 }
@@ -42,6 +48,9 @@ void Stat::AddMultipleModifier(std::vector<StatModifier> _modifiers)
 	for (auto& m : _modifiers)
 		this->modifiers.push_back(m);
 
+	// Because we've add new modifiers, this stat is dirty and have to be re calculate
+	this->isDirty = true;
+	
 	// Sort by order
 	SortModifiersByExecutionOrder();
 }
@@ -56,9 +65,14 @@ void Stat::SortModifiersByExecutionOrder()
 
 
 
-float Stat::GetValue() const
+float Stat::GetValue()
 {
-	return CalculateRealValue();
+	if (this->isDirty)
+		this->previousValue = CalculateRealValue();
+
+	this->isDirty = false;
+	
+	return this->previousValue;
 }
 
 float Stat::CalculateRealValue() const
@@ -75,6 +89,14 @@ float Stat::CalculateRealValue() const
 		case StatModifierType::PercentMultiplier:
 		case StatModifierType::Multiplier:
 			realValue *= mod.GetValue();
+			break;
+			
+		case StatModifierType::Add:
+			realValue += mod.GetValue();
+			break;
+			
+		case StatModifierType::Remove:
+			realValue -= mod.GetValue();
 			break;
 		}
 	}

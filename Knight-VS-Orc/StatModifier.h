@@ -6,7 +6,9 @@
 enum StatModifierType
 {
 	Multiplier = 0, // Flat value, between min value and max value, which multiply the stat value
-	PercentMultiplier = 10 // Value in percent, between 0 and float max value, which modify the stat by it's value
+	PercentMultiplier = 10, // Value in percent, between 0 and float max value, which modify the stat by it's value
+	Add = 100,
+	Remove = 500,
 };
 
 /// <summary>

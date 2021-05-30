@@ -25,7 +25,7 @@ void Weapon::swap(Weapon& _w)
 }
 
 
-float Weapon::GetDamage() const
+float Weapon::GetDamage()
 {
 	return this->damage.GetValue();
 }
