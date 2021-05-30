@@ -64,7 +64,7 @@ public:
 	unsigned int GetActualCooldown() const;
 #pragma endregion 
 
-#pragma Cooldown Method
+#pragma region Cooldown Method
 	/// <summary>
 	/// Update ability cooldown after a turn for example
 	/// </summary>

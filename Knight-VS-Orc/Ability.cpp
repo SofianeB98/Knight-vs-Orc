@@ -13,16 +13,16 @@ Ability::Ability() : abilityCooldown(1), actualCooldown(0), abilitySuccessPercen
 
 Ability::Ability(unsigned int _abilityCooldown) : actualCooldown(0), abilitySuccessPercent(50)
 {
-	assert((int)_abilityCooldown >= 0, "You're trying to set a negative cooldown");
+	assert((int)_abilityCooldown >= 0 && "You're trying to set a negative cooldown");
 	this->abilityCooldown = _abilityCooldown;
 }
 
 Ability::Ability(unsigned int _abilityCooldown, float _abilitySuccessPercent) : actualCooldown(0)
 {
-	assert((int)_abilityCooldown >= 0, "You're trying to set a negative cooldown");
+	assert((int)_abilityCooldown >= 0 && "You're trying to set a negative cooldown");
 	this->abilityCooldown = _abilityCooldown;
 
-	assert(_abilitySuccessPercent >= 0, "You're trying to set a negative success percent");
+	assert(_abilitySuccessPercent >= 0 && "You're trying to set a negative success percent");
 	this->abilitySuccessPercent = _abilitySuccessPercent;
 }
 
