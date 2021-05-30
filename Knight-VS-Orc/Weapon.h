@@ -47,7 +47,7 @@ protected:
 	/// Swap this class field with parameter value
 	/// </summary>
 	/// <param name="w"></param>
-	virtual void swap(Weapon& _w);
+	void swap(Weapon& _w);
 private:
 	
 };

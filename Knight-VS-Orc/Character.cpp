@@ -11,7 +11,7 @@ Character::Character() : life(10), damageMultiplier(1.0f)
 	this->ability = nullptr;
 }
 
-Character::Character(Weapon& _w, Ability& _a)
+Character::Character(Weapon& _w, Ability& _a) : Character()
 {
 	this->weapon = &_w;
 	this->ability = &_a;
@@ -53,7 +53,8 @@ void Character::UpdateCharacterFields()
 	this->damageMultiplier.UpdateModifiers();
 
 	// Update Ability cooldown
-	this->ability->UpdateCooldown();
+	if(this->ability != nullptr)
+		this->ability->UpdateCooldown();
 
 	
 	
@@ -65,7 +66,8 @@ void Character::UpdateStatus()
 {
 	for (auto& st : status)
 	{
-		st->UpdateDurability();
+		if(st != nullptr)
+			st->UpdateDurability();
 	}
 
 	// Remove all modifier with a 0 durability
@@ -107,11 +109,17 @@ void Character::ClearStatus()
 
 void Character::UseAbility(Character& _target)
 {
+	if (this->ability == nullptr)
+		return;
+	
 	this->ability->Launch(_target);
 }
 
 void Character::UseWeapon(Character& _target)
 {
+	if (this->weapon == nullptr)
+		return;
+	
 	const float damage = this->weapon->GetDamage() * this->damageMultiplier.GetValue();
 	_target.TakeDamage(damage);
 }
