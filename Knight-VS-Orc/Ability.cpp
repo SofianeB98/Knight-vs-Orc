@@ -3,6 +3,7 @@
 #include <cassert>
 #include <iostream>
 
+#include "Utils.h"
 
 #include "Character.h"
 
@@ -93,7 +94,7 @@ void Ability::Launch(Character& _c)
 	}
 
 	// Launch a random wheel between 0 and 100
-	float wheel = 0.0f;
+	const float wheel = Utils::GetRandomFloat(0.0f, 100.0f);
 
 	// Reset cooldown
 	ResetCooldown();

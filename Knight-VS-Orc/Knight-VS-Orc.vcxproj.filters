@@ -61,6 +61,9 @@
       <Filter>Fichiers sources\Abilities</Filter>
     </ClCompile>
     <ClCompile Include="Charge.cpp">
+      <Filter>Fichiers sources\Abilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -91,6 +94,9 @@
     </ClInclude>
     <ClInclude Include="Charge.h">
       <Filter>Fichiers d%27en-tête\Abilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
