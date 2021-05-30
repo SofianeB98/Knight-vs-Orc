@@ -31,18 +31,21 @@
     <Filter Include="Fichiers sources\Abilities">
       <UniqueIdentifier>{0e69786f-21a5-4fa0-879c-bb9c7c810b5e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\StatSystem">
+      <UniqueIdentifier>{99da4871-c775-4c71-8f6c-362eff02ad66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\StatSystem">
+      <UniqueIdentifier>{617234d4-b808-4bb7-ae6b-10e4acd2a763}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Status">
+      <UniqueIdentifier>{9fd582b1-80e9-4966-8cb6-ebf2c54aa256}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Status">
+      <UniqueIdentifier>{2f07323e-a415-4fa4-a45e-5ffe905bc9bb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Knight-VS-Orc.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Status.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Stat.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="StatModifier.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="Character.cpp">
@@ -66,17 +69,17 @@
     <ClCompile Include="Utils.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="Stat.cpp">
+      <Filter>Fichiers sources\StatSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="StatModifier.cpp">
+      <Filter>Fichiers sources\StatSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Status.cpp">
+      <Filter>Fichiers sources\Status</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Status.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Stat.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="StatModifier.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="Character.h">
       <Filter>Fichiers d%27en-tête\Characters</Filter>
     </ClInclude>
@@ -97,6 +100,15 @@
     </ClInclude>
     <ClInclude Include="Utils.h">
       <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Stat.h">
+      <Filter>Fichiers d%27en-tête\StatSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="StatModifier.h">
+      <Filter>Fichiers d%27en-tête\StatSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Status.h">
+      <Filter>Fichiers d%27en-tête\Status</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
