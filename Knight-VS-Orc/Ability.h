@@ -99,7 +99,7 @@ protected:
 	/// Swap this class field with parameter value
 	/// </summary>
 	/// <param name="_a"></param>
-	virtual void swap(Ability& _a);
+	void swap(Ability& _a);
 	
 private:
 	

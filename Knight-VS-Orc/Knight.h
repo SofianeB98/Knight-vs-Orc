@@ -4,6 +4,8 @@
 class Knight : public Character
 {
 public:
+	Stat shield;
+	
 #pragma region Constructor
 	/// <summary>
 	/// Default knight constructor
@@ -40,7 +42,7 @@ public:
 	virtual void UpdateCharacterFields() override;
 	
 protected:
-	Stat shield;
+
 
 	/// <summary>
 	/// When knight take damage, his shield take first and then
