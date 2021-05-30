@@ -123,7 +123,8 @@ void Character::ApplyStatus(Status* _s)
 
 void Character::TakeDamage(float _damage)
 {
-	
+	// By default we add a remove modifier type with a permanent durability
+	this->life.AddModifier({ StatModifierType::Remove, _damage, -1 });
 }
 
 
