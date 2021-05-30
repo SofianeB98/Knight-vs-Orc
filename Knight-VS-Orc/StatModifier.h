@@ -24,7 +24,7 @@ public:
 	/// <summary>
 	/// Create a default stat modifier with default value
 	/// </summary>
-	StatModifier() : type(StatModifierType::Multiplier), value(0.0f), executionOrder(static_cast<int>(StatModifierType::Multiplier)), durability(1){}
+	StatModifier();
 
 	/// <summary>
 	/// Create a stat modifier with specific type, value and durability
@@ -32,7 +32,7 @@ public:
 	/// <param name="_type"></param>
 	/// <param name="_value">Between 0 and MaxValue for Percent type, and MinValue <-> MaxValue for Flat type</param>
 	/// <param name="_durability">Decrease at the end of a turn</param>
-	StatModifier(StatModifierType _type, float _value, int _durability) : type(_type), value(_value), executionOrder(static_cast<int>(_type)), durability(_durability) {}
+	StatModifier(StatModifierType _type, float _value, int _durability);
 
 	/// <summary>
 	/// Create a stat modifier with specific type, value, execution order and durability
@@ -41,25 +41,21 @@ public:
 	/// <param name="_value">Between 0 and MaxValue for Percent type, and MinValue <-> MaxValue for Flat type</param>
 	/// <param name="_executionOrder"></param>
 	/// <param name="_durability">Decrease at the end of a turn</param>
-	StatModifier(StatModifierType _type, float _value, int _executionOrder, int _durability) : type(_type), value(_value), executionOrder(_executionOrder), durability(_durability) {}
+	StatModifier(StatModifierType _type, float _value, int _executionOrder, int _durability);
 
 	/// <summary>
 	/// Copy constructor
 	/// copy all field of parameter
 	/// </summary>
 	/// <param name="sm"></param>
-	StatModifier(const StatModifier& sm) : type(sm.type), value(sm.value), executionOrder(sm.executionOrder), durability(sm.durability){}
+	StatModifier(const StatModifier& _sm);
 
 	/// <summary>
 	/// = operator of stat class
 	/// </summary>
-	/// <param name="sm"></param>
+	/// <param name="_sm"></param>
 	/// <returns></returns>
-	StatModifier& operator=(StatModifier sm)
-	{
-		this->swap(sm);
-		return *this;
-	}
+	StatModifier& operator=(StatModifier _sm);
 #pragma endregion 
 
 	~StatModifier() = default;
@@ -104,15 +100,8 @@ public:
 	/// Remove 1 to durability
 	/// if set to -1, return
 	/// </summary>
-	void UpdateModifierDurability()
-	{
-		// If the durability is set to -1
-		// The modifier is a permanent modifier
-		if (this->durability == -1)
-			return;
-
-		this->durability-=1;
-	}
+	void UpdateModifierDurability();
+	
 	
 private:
 	StatModifierType type;
@@ -125,5 +114,5 @@ private:
 	/// Swap this class field with parameter value
 	/// </summary>
 	/// <param name="s"></param>
-	void swap(StatModifier& sm);
+	void swap(StatModifier& _sm);
 };
