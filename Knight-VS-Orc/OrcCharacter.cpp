@@ -1,9 +1,9 @@
 ﻿#include "OrcCharacter.h"
 
-#include "Axe.h"
+#include "AxeWeapon.h"
 #include "StunAbility.h"
 
-OrcCharacter::OrcCharacter() : Character(*new Axe, *new StunAbility)
+OrcCharacter::OrcCharacter() : Character(*new AxeWeapon, *new StunAbility)
 {
 }
 

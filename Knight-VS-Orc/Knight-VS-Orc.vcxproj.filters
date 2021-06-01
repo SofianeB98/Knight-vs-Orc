@@ -51,19 +51,19 @@
     <ClCompile Include="Character.cpp">
       <Filter>Fichiers sources\Characters</Filter>
     </ClCompile>
-    <ClCompile Include="Knight.cpp">
+    <ClCompile Include="KnightCharacter.cpp">
       <Filter>Fichiers sources\Characters</Filter>
     </ClCompile>
     <ClCompile Include="Weapon.cpp">
       <Filter>Fichiers sources\Weapons</Filter>
     </ClCompile>
-    <ClCompile Include="Sword.cpp">
+    <ClCompile Include="SwordWeapon.cpp">
       <Filter>Fichiers sources\Weapons</Filter>
     </ClCompile>
     <ClCompile Include="Ability.cpp">
       <Filter>Fichiers sources\Abilities</Filter>
     </ClCompile>
-    <ClCompile Include="Charge.cpp">
+    <ClCompile Include="ChargeAbility.cpp">
       <Filter>Fichiers sources\Abilities</Filter>
     </ClCompile>
     <ClCompile Include="Utils.cpp">
@@ -81,7 +81,7 @@
     <ClCompile Include="OrcCharacter.cpp">
       <Filter>Fichiers sources\Characters</Filter>
     </ClCompile>
-    <ClCompile Include="Axe.cpp">
+    <ClCompile Include="AxeWeapon.cpp">
       <Filter>Fichiers sources\Weapons</Filter>
     </ClCompile>
     <ClCompile Include="StunnedStatus.cpp">
@@ -95,19 +95,19 @@
     <ClInclude Include="Character.h">
       <Filter>Fichiers d%27en-tête\Characters</Filter>
     </ClInclude>
-    <ClInclude Include="Knight.h">
+    <ClInclude Include="KnightCharacter.h">
       <Filter>Fichiers d%27en-tête\Characters</Filter>
     </ClInclude>
     <ClInclude Include="Weapon.h">
       <Filter>Fichiers d%27en-tête\Weapons</Filter>
     </ClInclude>
-    <ClInclude Include="Sword.h">
+    <ClInclude Include="SwordWeapon.h">
       <Filter>Fichiers d%27en-tête\Weapons</Filter>
     </ClInclude>
     <ClInclude Include="Ability.h">
       <Filter>Fichiers d%27en-tête\Abilities</Filter>
     </ClInclude>
-    <ClInclude Include="Charge.h">
+    <ClInclude Include="ChargeAbility.h">
       <Filter>Fichiers d%27en-tête\Abilities</Filter>
     </ClInclude>
     <ClInclude Include="Utils.h">
@@ -125,7 +125,7 @@
     <ClInclude Include="OrcCharacter.h">
       <Filter>Fichiers d%27en-tête\Characters</Filter>
     </ClInclude>
-    <ClInclude Include="Axe.h">
+    <ClInclude Include="AxeWeapon.h">
       <Filter>Fichiers d%27en-tête\Weapons</Filter>
     </ClInclude>
     <ClInclude Include="StunAbility.h">

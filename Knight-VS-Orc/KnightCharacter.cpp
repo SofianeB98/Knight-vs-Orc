@@ -1,29 +1,29 @@
-﻿#include "Knight.h"
+﻿#include "KnightCharacter.h"
 
-#include "Sword.h"
-#include "Charge.h"
+#include "SwordWeapon.h"
+#include "ChargeAbility.h"
 
-Knight::Knight() : Character(*new Sword, *new Charge), shield(50)
+KnightCharacter::KnightCharacter() : Character(*new SwordWeapon, *new ChargeAbility), shield(50)
 {
 	this->life = { 20 };
 }
 
-Knight::Knight(Weapon& _w, Ability& _a) : Character(_w, _a), shield(50)
+KnightCharacter::KnightCharacter(Weapon& _w, Ability& _a) : Character(_w, _a), shield(50)
 {
 	this->life = { 20 };
 }
 
-Knight::Knight(const Knight& _k) : Character(_k), shield(_k.shield)
+KnightCharacter::KnightCharacter(const KnightCharacter& _k) : Character(_k), shield(_k.shield)
 {
 }
 
-Knight& Knight::operator=(Knight _k)
+KnightCharacter& KnightCharacter::operator=(KnightCharacter _k)
 {
 	swap(_k);
 	return *this;
 }
 
-void Knight::swap(Knight& _k)
+void KnightCharacter::swap(KnightCharacter& _k)
 {
 	Character::swap(_k);
 	std::swap(this->shield, _k.shield);
@@ -31,7 +31,7 @@ void Knight::swap(Knight& _k)
 
 
 
-void Knight::UpdateCharacterFields()
+void KnightCharacter::UpdateCharacterFields()
 {
 	// Process the base method
 	Character::UpdateCharacterFields();
@@ -40,7 +40,7 @@ void Knight::UpdateCharacterFields()
 	this->shield.UpdateModifiers();
 }
 
-void Knight::TakeDamage(float _damage)
+void KnightCharacter::TakeDamage(float _damage)
 {
 	// Check if shield value is ok
 	if(shield.GetValue() > 0.0f)

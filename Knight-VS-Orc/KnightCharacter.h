@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "Character.h"
 
-class Knight : public Character
+class KnightCharacter : public Character
 {
 public:
 	Stat shield;
@@ -11,7 +11,7 @@ public:
 	/// Default knight constructor
 	/// Life = 20, shield = 50
 	/// </summary>
-	Knight();
+	KnightCharacter();
 
 	/// <summary>
 	/// Create a knight like it's default constructor with
@@ -19,20 +19,20 @@ public:
 	/// </summary>
 	/// <param name="_w"></param>
 	/// <param name="_a"></param>
-	Knight(Weapon& _w, Ability& _a);
+	KnightCharacter(Weapon& _w, Ability& _a);
 
 	/// <summary>
 	/// Copy constructor
 	/// </summary>
 	/// <param name="_k"></param>
-	Knight(const Knight& _k);
+	KnightCharacter(const KnightCharacter& _k);
 
 	/// <summary>
 	/// = operator of this class
 	/// </summary>
 	/// <param name="_k"></param>
 	/// <returns></returns>
-	Knight& operator=(Knight _k);
+	KnightCharacter& operator=(KnightCharacter _k);
 #pragma endregion
 
 	/// <summary>
@@ -56,7 +56,7 @@ protected:
 	/// Swap this class field with parameter value
 	/// </summary>
 	/// <param name="_c=k"></param>
-	void swap(Knight& _k);
+	void swap(KnightCharacter& _k);
 	
 private:
 };
