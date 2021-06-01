@@ -140,25 +140,33 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Ability.cpp" />
+    <ClCompile Include="Axe.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="Charge.cpp" />
     <ClCompile Include="Knight-VS-Orc.cpp" />
     <ClCompile Include="Knight.cpp" />
+    <ClCompile Include="OrcCharacter.cpp" />
     <ClCompile Include="Stat.cpp" />
     <ClCompile Include="StatModifier.cpp" />
     <ClCompile Include="Status.cpp" />
+    <ClCompile Include="StunAbility.cpp" />
+    <ClCompile Include="StunnedStatus.cpp" />
     <ClCompile Include="Sword.cpp" />
     <ClCompile Include="Utils.cpp" />
     <ClCompile Include="Weapon.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ability.h" />
+    <ClInclude Include="Axe.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="Charge.h" />
     <ClInclude Include="Knight.h" />
+    <ClInclude Include="OrcCharacter.h" />
     <ClInclude Include="Stat.h" />
     <ClInclude Include="StatModifier.h" />
     <ClInclude Include="Status.h" />
+    <ClInclude Include="StunAbility.h" />
+    <ClInclude Include="StunnedStatus.h" />
     <ClInclude Include="Sword.h" />
     <ClInclude Include="Utils.h" />
     <ClInclude Include="Weapon.h" />
