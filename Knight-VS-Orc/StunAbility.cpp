@@ -1,5 +1,6 @@
 ﻿#include "StunAbility.h"
 #include "Character.h"
+#include "StunnedStatus.h"
 
 StunAbility::StunAbility() : Ability(5, 20.0f)
 {
@@ -34,5 +35,5 @@ void StunAbility::Launch(Character& _c)
 	Ability::Launch(_c);
 
 	// Stun ability apply the stuned status to the target
-	_c.ApplyStatus(nullptr);
+	_c.ApplyStatus(new StunnedStatus);
 }
