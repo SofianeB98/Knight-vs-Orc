@@ -143,6 +143,8 @@
     <ClCompile Include="AxeWeapon.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="ChargeAbility.cpp" />
+    <ClCompile Include="Component.cpp" />
+    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Knight-VS-Orc.cpp" />
     <ClCompile Include="KnightCharacter.cpp" />
     <ClCompile Include="OrcCharacter.cpp" />
@@ -160,6 +162,8 @@
     <ClInclude Include="AxeWeapon.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="ChargeAbility.h" />
+    <ClInclude Include="Component.h" />
+    <ClInclude Include="GameObject.h" />
     <ClInclude Include="KnightCharacter.h" />
     <ClInclude Include="OrcCharacter.h" />
     <ClInclude Include="Stat.h" />
