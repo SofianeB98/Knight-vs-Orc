@@ -78,17 +78,17 @@
     <ClCompile Include="Status.cpp">
       <Filter>Fichiers sources\Status</Filter>
     </ClCompile>
-    <ClCompile Include="Orc.cpp">
+    <ClCompile Include="OrcCharacter.cpp">
       <Filter>Fichiers sources\Characters</Filter>
     </ClCompile>
     <ClCompile Include="Axe.cpp">
       <Filter>Fichiers sources\Weapons</Filter>
     </ClCompile>
-    <ClCompile Include="StunAbility.cpp">
-      <Filter>Fichiers sources</Filter>
+    <ClCompile Include="StunnedStatus.cpp">
+      <Filter>Fichiers sources\Status</Filter>
     </ClCompile>
-    <ClCompile Include="StunedStatus.cpp">
-      <Filter>Fichiers sources</Filter>
+    <ClCompile Include="StunAbility.cpp">
+      <Filter>Fichiers sources\Abilities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -122,7 +122,7 @@
     <ClInclude Include="Status.h">
       <Filter>Fichiers d%27en-tête\Status</Filter>
     </ClInclude>
-    <ClInclude Include="Orc.h">
+    <ClInclude Include="OrcCharacter.h">
       <Filter>Fichiers d%27en-tête\Characters</Filter>
     </ClInclude>
     <ClInclude Include="Axe.h">
@@ -131,7 +131,7 @@
     <ClInclude Include="StunAbility.h">
       <Filter>Fichiers d%27en-tête\Abilities</Filter>
     </ClInclude>
-    <ClInclude Include="StunedStatus.h">
+    <ClInclude Include="StunnedStatus.h">
       <Filter>Fichiers d%27en-tête\Status</Filter>
     </ClInclude>
   </ItemGroup>

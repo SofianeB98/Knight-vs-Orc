@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "Character.h"
 
-class Orc : public Character
+class OrcCharacter : public Character
 {
 public:
 #pragma region Constructor
@@ -9,7 +9,7 @@ public:
 	/// Default Orc constructor
 	/// Life = 60
 	/// </summary>
-	Orc();
+	OrcCharacter();
 
 	/// <summary>
 	/// Create a Orc like it's default constructor with
@@ -17,20 +17,20 @@ public:
 	/// </summary>
 	/// <param name="_w"></param>
 	/// <param name="_a"></param>
-	Orc(Weapon& _w, Ability& _a);
+	OrcCharacter(Weapon& _w, Ability& _a);
 
 	/// <summary>
 	/// Copy constructor
 	/// </summary>
 	/// <param name="_c"></param>
-	Orc(const Orc& _c);
+	OrcCharacter(const OrcCharacter& _c);
 
 	/// <summary>
 	/// = operator of this class
 	/// </summary>
 	/// <param name="_c"></param>
 	/// <returns></returns>
-	Orc& operator=(Orc _c);
+	OrcCharacter& operator=(OrcCharacter _c);
 #pragma endregion
 
 	
