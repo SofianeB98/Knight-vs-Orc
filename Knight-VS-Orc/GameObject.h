@@ -10,13 +10,17 @@ public:
 	/// Create a default Game Object and reserve its components
 	/// </summary>
 	GameObject();
+
+	GameObject(const GameObject& _gameObject);
+
+	GameObject& operator=(GameObject _gameObject);
 #pragma endregion
 
 	~GameObject();
 
 #pragma region Game Logic Method
 	/// <summary>
-	/// 
+	/// Call when this object is created
 	/// </summary>
 	void Start();
 
@@ -25,6 +29,12 @@ public:
 	/// </summary>
 	/// <param name="_dt"></param>
 	void Update(double _dt);
+
+	void SetActive(bool _val);
+#pragma endregion 
+
+#pragma region Getter
+	bool IsActive() const;
 #pragma endregion 
 	
 #pragma region Component Method
@@ -49,10 +59,26 @@ public:
 #pragma endregion 
 	
 private:
+	bool isActive;
 	std::vector<Component*> components;
-
+	
 	/// <summary>
 	/// Destroy all components
 	/// </summary>
 	void Destroy();
+
+	/// <summary>
+	/// Called each time this object is set to "isActive"
+	/// Trigger on enable on each component
+	/// </summary>
+	void OnEnable();
+
+	/// <summary>
+	/// Called each time this object is set to "is not Active"
+	/// Trigger on disable on each component
+	/// </summary>
+	void OnDisable();
+
+
+	void swap(GameObject& _gameObject);
 };

@@ -1,10 +1,32 @@
 ﻿#include "GameObject.h"
 #include "Component.h"
 
-GameObject::GameObject()
+GameObject::GameObject() : isActive(true)
 {
 	this->components.reserve(5);
+
+	// When an object is created, we call On Enable()
+	OnEnable();
 }
+
+GameObject::GameObject(const GameObject& _gameObject) : isActive(_gameObject.isActive), components(_gameObject.components)
+{
+	
+}
+
+GameObject& GameObject::operator=(GameObject _gameObject)
+{
+	swap(_gameObject);
+	return *this;
+}
+
+void GameObject::swap(GameObject& _gameObject)
+{
+	std::swap(this->isActive, _gameObject.isActive);
+	std::swap(this->components, _gameObject.components);
+}
+
+
 
 GameObject::~GameObject()
 {
@@ -29,6 +51,49 @@ void GameObject::Update(double _dt)
 	}
 }
 
+
+
+void GameObject::SetActive(bool _val)
+{
+	// the actual value equals the parameter, we won't update this state
+	if (this->isActive == _val)
+		return;
+
+	this->isActive = _val;
+
+	// Trigger the right callback
+	if (this->isActive)
+		OnEnable();
+	else
+		OnDisable();
+}
+
+bool GameObject::IsActive() const
+{
+	return this->isActive;
+}
+
+void GameObject::OnEnable()
+{
+	for (auto& component : this->components)
+	{
+		if (component == nullptr)
+			continue;
+
+		// component->OnEnable(*this);
+	}
+}
+
+void GameObject::OnDisable()
+{
+	for (auto& component : this->components)
+	{
+		if (component == nullptr)
+			continue;
+
+		// component->OnDisable(*this);
+	}
+}
 
 
 void GameObject::Destroy()
@@ -58,9 +123,12 @@ T& GameObject::AddComponent()
 		return *objectComponent;
 
 	// else, create a new component and return its reference to modify it
-	T* component = new T;
+	Component* component = new T;
 	this->components.emplace_back(component);
 
+	// When we add a new component, call the start method of it
+	component->Start(*this);
+	
 	return *component;
 }
 
