@@ -35,6 +35,7 @@ public:
 
 #pragma region Getter
 	bool IsActive() const;
+	unsigned int GetId() const;
 #pragma endregion 
 	
 #pragma region Component Method
@@ -61,6 +62,10 @@ public:
 private:
 	bool isActive;
 	std::vector<Component*> components;
+
+	static unsigned int CURRENT_ID;
+	
+	unsigned int id;
 	
 	/// <summary>
 	/// Destroy all components

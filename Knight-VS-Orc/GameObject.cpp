@@ -1,8 +1,14 @@
 ﻿#include "GameObject.h"
 #include "Component.h"
 
+unsigned int GameObject::CURRENT_ID = 0;
+
 GameObject::GameObject() : isActive(true)
 {
+	GameObject::CURRENT_ID++;
+
+	this->id = CURRENT_ID;
+	
 	this->components.reserve(5);
 
 	// When an object is created, we call On Enable()
@@ -75,6 +81,11 @@ void GameObject::SetActive(bool _val)
 bool GameObject::IsActive() const
 {
 	return this->isActive;
+}
+
+unsigned GameObject::GetId() const
+{
+	return this->id;
 }
 
 void GameObject::OnEnable()
