@@ -45,6 +45,10 @@ void GameObject::Start()
 
 void GameObject::Update(double _dt)
 {
+	// Don't update this object if isn't enable
+	if (!this->isActive)
+		return;
+	
 	for(auto& component : this->components)
 	{
 		component->Update(*this, _dt);
@@ -80,7 +84,7 @@ void GameObject::OnEnable()
 		if (component == nullptr)
 			continue;
 
-		// component->OnEnable(*this);
+		component->OnEnable(*this);
 	}
 }
 
@@ -91,7 +95,7 @@ void GameObject::OnDisable()
 		if (component == nullptr)
 			continue;
 
-		// component->OnDisable(*this);
+		component->OnDisable(*this);
 	}
 }
 
