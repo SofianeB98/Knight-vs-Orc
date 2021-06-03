@@ -5,7 +5,7 @@ class Component
 {
 public:
 #pragma region Constructor
-	Component();
+	Component() = default;
 #pragma endregion 
 
 	virtual ~Component() = default;
