@@ -8,9 +8,11 @@
 class Game
 {
 public:
+	Game(const Game& _g) = delete;
+	Game& operator=(Game _g) = delete;
 	
 	void Initialize();
-	void Update();
+	void Run();
 	void DeInitialize();
 
 	static Game& Get();
@@ -33,5 +35,6 @@ private:
 	bool quitButtonPressed;
 
 	bool GetQuitButtonPressed() const;
+	void Update();
 	
 };

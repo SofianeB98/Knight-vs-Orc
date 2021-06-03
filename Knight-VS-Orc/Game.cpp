@@ -13,6 +13,16 @@ void Game::Initialize()
 	this->previousTimePoint = std::chrono::high_resolution_clock::now();
 }
 
+void Game::Run()
+{
+	// Start ?
+
+	// Update
+	Update();
+
+	
+}
+
 void Game::Update()
 {
 	while (!this->quitButtonPressed)
@@ -35,6 +45,17 @@ void Game::Update()
 
 void Game::DeInitialize()
 {
+	for(auto& gameObject : this->sceneObjects)
+	{
+		if (gameObject.second != nullptr)
+		{
+			delete gameObject.second;
+			this->sceneObjects[gameObject.first] = nullptr;
+		}
+	}
+
+	this->sceneObjects.clear();
+	
 	if (Game::instance != nullptr)
 	{
 		delete Game::instance;
@@ -77,7 +98,6 @@ void Game::DestroyGameObject(unsigned int _id)
 	}
 
 	this->sceneObjects.erase(_id);
-
 }
 
 
