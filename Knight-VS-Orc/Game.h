@@ -14,13 +14,16 @@ public:
 	void DeInitialize();
 
 	static Game& Get();
+
+	GameObject& CreateNewGameObject();
+	void DestroyGameObject(unsigned int _id);
 	
 private:
 	Game();
 	
 	static Game* instance;
 	
-	std::map<unsigned int, GameObject> sceneObjects;
+	std::map<unsigned int, GameObject*> sceneObjects;
 
 	using TimePoint = std::chrono::time_point<std::chrono::high_resolution_clock>;
 	TimePoint currentTimePoint;
