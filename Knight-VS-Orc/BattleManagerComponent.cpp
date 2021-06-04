@@ -1,12 +1,14 @@
 ﻿#include "BattleManagerComponent.h"
 
 #include <iostream>
+#include <Windows.h>
 
 
 #include "CharacterComponent.h"
 #include "Character.h"
 #include "Game.h"
 #include "GameObject.h"
+
 
 BattleManagerComponent::BattleManagerComponent()
 {
@@ -55,6 +57,8 @@ void BattleManagerComponent::Update(GameObject& _gameObject, double _dt)
 	
 	Character& p1 = this->readyPlayerOne->GetCharacter();
 	Character& p2 = this->playerTwo->GetCharacter();
+
+	PrintCharacterInformation(p1, p2);
 	
 	switch (this->battleState)
 	{
@@ -86,6 +90,7 @@ void BattleManagerComponent::Update(GameObject& _gameObject, double _dt)
 		}
 		
 		// print
+		std::cout << "Do you want to use your Ability ? Y or N " << std::endl;
 		
 		break;
 		
@@ -153,4 +158,27 @@ void BattleManagerComponent::OnDisable(GameObject& _gameObject)
 BattleState BattleManagerComponent::GetBattleState() const
 {
 	return this->battleState;
+}
+
+void BattleManagerComponent::PrintCharacterInformation(Character& c1, Character& c2)
+{
+	system("CLS");
+	
+	COORD coord;
+	coord.X = 0;
+	coord.Y = 0;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+
+	std::cout << c1.GetCharacterInformation() << std::endl;
+
+	coord.X = 10;
+	coord.Y = 0;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+
+	std::cout << c2.GetCharacterInformation() << std::endl;
+
+	coord.X = 0;
+	coord.Y = 8;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+	
 }

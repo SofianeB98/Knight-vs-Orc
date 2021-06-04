@@ -19,6 +19,7 @@ enum BattleState
 
 
 class CharacterComponent;
+class Character;
 class BattleManagerComponent : public Component
 {
 public:
@@ -46,4 +47,6 @@ private:
 	CharacterComponent* playerTwo;
 
 	int currentTurn;
+
+	void PrintCharacterInformation(Character& c1, Character& c2);
 };
