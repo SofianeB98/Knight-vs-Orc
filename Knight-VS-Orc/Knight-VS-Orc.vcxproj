@@ -151,6 +151,7 @@
     <ClCompile Include="Knight-VS-Orc.cpp" />
     <ClCompile Include="KnightCharacter.cpp" />
     <ClCompile Include="OrcCharacter.cpp" />
+    <ClCompile Include="PlayerCharacterComponent.cpp" />
     <ClCompile Include="Stat.cpp" />
     <ClCompile Include="StatModifier.cpp" />
     <ClCompile Include="Status.cpp" />
@@ -172,6 +173,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="KnightCharacter.h" />
     <ClInclude Include="OrcCharacter.h" />
+    <ClInclude Include="PlayerCharacterComponent.h" />
     <ClInclude Include="Stat.h" />
     <ClInclude Include="StatModifier.h" />
     <ClInclude Include="Status.h" />

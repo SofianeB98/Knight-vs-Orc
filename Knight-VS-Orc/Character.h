@@ -65,6 +65,7 @@ public:
 
 #pragma region Getter
 	virtual bool IsAlive() = 0;
+	bool IsAbilityAvailable() const;
 #pragma endregion 
 	
 	/// <summary>

@@ -6,6 +6,7 @@
 
 
 #include "BattleManagerComponent.h"
+#include "Character.h"
 
 PlayerCharacterComponent::PlayerCharacterComponent(BattleManagerComponent& _battleManager, Character& _character) : CharacterComponent(_battleManager, _character)
 {
@@ -40,6 +41,12 @@ void PlayerCharacterComponent::Update(GameObject& _gameObject, double _dt)
 		break;
 
 	case BattleState::AbilityChoice:
+		if (!this->character->IsAbilityAvailable())
+		{
+			this->abilityChoiceState = AbilityChoiceState::DontUseIt;
+			break;
+		}
+		
 		if (_kbhit())
 		{
 			const int ch = _getch();

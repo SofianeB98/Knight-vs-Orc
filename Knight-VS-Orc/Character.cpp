@@ -41,6 +41,11 @@ Character::~Character()
 }
 
 
+bool Character::IsAbilityAvailable() const
+{
+	return this->ability->IsAvailable();
+}
+
 void Character::UpdateCharacterFields()
 {
 	// Update all stat modifiers
