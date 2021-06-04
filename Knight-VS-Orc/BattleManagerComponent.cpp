@@ -3,20 +3,22 @@
 #include <iostream>
 #include <Windows.h>
 
-
-#include "CharacterComponent.h"
-#include "Character.h"
 #include "Game.h"
 #include "GameObject.h"
+#include "KnightCharacter.h"
+
+#include "OrcCharacter.h"
+
+#include "PlayerCharacterComponent.h"
 
 
-BattleManagerComponent::BattleManagerComponent()
+BattleManagerComponent::BattleManagerComponent() : Component()
 {
 	GameObject& p1 = Game::Get().CreateNewGameObject();
-
+	this->readyPlayerOne = &p1.AddComponent<PlayerCharacterComponent>(new PlayerCharacterComponent(*this, *new KnightCharacter));
 	
 	GameObject& p2 = Game::Get().CreateNewGameObject();
-
+	this->playerTwo = &p2.AddComponent<PlayerCharacterComponent>(new PlayerCharacterComponent(*this, *new OrcCharacter));
 
 	this->battleState = BattleState::StartBattle;
 
@@ -171,7 +173,7 @@ void BattleManagerComponent::PrintCharacterInformation(Character& c1, Character&
 
 	std::cout << c1.GetCharacterInformation() << std::endl;
 
-	coord.X = 10;
+	coord.X = 20;
 	coord.Y = 0;
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 

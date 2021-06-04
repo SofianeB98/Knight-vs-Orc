@@ -3,8 +3,8 @@
 #include <chrono>
 #include <map>
 
-#include "GameObject.h"
 
+class GameObject;
 class Game
 {
 public:

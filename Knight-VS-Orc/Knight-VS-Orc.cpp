@@ -2,7 +2,6 @@
 
 #include "Game.h"
 
-
 int main() {
 
 	Game& app = Game::Get();
@@ -10,7 +9,7 @@ int main() {
 	app.Initialize();
 	app.Run();
 	app.DeInitialize();
-
+	
 	return 0;
 
 }

@@ -6,17 +6,24 @@
 #include <iostream>
 #include <thread>
 
+#include "BattleManagerComponent.h"
+#include "GameObject.h"
+
 Game* Game::instance = nullptr;
 
 void Game::Initialize()
 {
 	this->previousTimePoint = std::chrono::high_resolution_clock::now();
+
+	auto& battle = CreateNewGameObject();
+	battle.AddComponent<BattleManagerComponent>(new BattleManagerComponent);
 }
 
 void Game::Run()
 {
 	// Start ?
-
+	
+	
 	// Update
 	Update();
 
