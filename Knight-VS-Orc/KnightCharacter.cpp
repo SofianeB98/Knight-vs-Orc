@@ -29,6 +29,13 @@ void KnightCharacter::swap(KnightCharacter& _k)
 	std::swap(this->shield, _k.shield);
 }
 
+bool KnightCharacter::IsAlive()
+{
+	if (this->shield.GetValue() > 0)
+		return true;
+	
+	return this->life.GetValue() > 0;
+}
 
 
 void KnightCharacter::UpdateCharacterFields()

@@ -109,7 +109,7 @@
       <Filter>Fichiers sources\Component</Filter>
     </ClCompile>
     <ClCompile Include="BattleManagerComponent.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Component</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

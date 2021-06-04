@@ -21,11 +21,6 @@ Character::Character(const Character& _c) : life(_c.life), damageMultiplier(_c.d
 {
 }
 
-Character& Character::operator=(Character _c)
-{
-	swap(_c);
-	return *this;
-}
 
 
 Character::~Character()
@@ -127,6 +122,14 @@ void Character::UseWeapon(Character& _target)
 void Character::ApplyStatus(Status* _s)
 {
 	this->status.emplace_back(_s);
+}
+
+void Character::ProcessStatus(StatusType _statusType)
+{
+	for(auto& s : this->status)
+		if(s != nullptr)
+			s->ProcessStatus(*this, _statusType);
+		
 }
 
 void Character::TakeDamage(float _damage)

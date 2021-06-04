@@ -27,8 +27,8 @@ public:
 #pragma endregion 
 
 #pragma region Character Callback
-	void UseAbility(CharacterComponent& _otherCharacter);
-	void UseWeapon(CharacterComponent& _otherCharacter);
+	void UseAbility(CharacterComponent& _otherCharacter) const;
+	void UseWeapon(CharacterComponent& _otherCharacter) const;
 #pragma endregion 
 	
 #pragma region Getter

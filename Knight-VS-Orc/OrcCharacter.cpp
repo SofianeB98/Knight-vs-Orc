@@ -21,3 +21,8 @@ OrcCharacter& OrcCharacter::operator=(OrcCharacter _c)
 	Character::swap(_c);
 	return *this;
 }
+
+bool OrcCharacter::IsAlive()
+{
+	return this->life.GetValue() > 0;
+}

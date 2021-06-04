@@ -3,7 +3,7 @@
 
 #include "BattleManagerComponent.h"
 
-CharacterComponent::CharacterComponent(BattleManagerComponent& _battleManager, Character& _character) : battleManager(_battleManager), character(&_character)
+CharacterComponent::CharacterComponent(BattleManagerComponent& _battleManager, Character& _character) : battleManager(_battleManager), character(&_character), abilityChoiceState(AbilityChoiceState::InProgress)
 {
 	//this->battleManager = _battleManager;
 }
@@ -21,12 +21,12 @@ CharacterComponent::~CharacterComponent()
 
 
 
-void CharacterComponent::UseAbility(CharacterComponent& _otherCharacter)
+void CharacterComponent::UseAbility(CharacterComponent& _otherCharacter) const
 {
 	this->character->UseAbility(_otherCharacter.GetCharacter());
 }
 
-void CharacterComponent::UseWeapon(CharacterComponent& _otherCharacter)
+void CharacterComponent::UseWeapon(CharacterComponent& _otherCharacter) const
 {
 	this->character->UseWeapon(_otherCharacter.GetCharacter());
 }

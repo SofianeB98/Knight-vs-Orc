@@ -148,6 +148,25 @@ T& GameObject::AddComponent()
 }
 
 template <typename T>
+T& GameObject::AddComponent(T* _component)
+{
+	static_assert(std::is_base_of<Component, T>::value, "T must inherit from Component");
+	
+	// We search if the component exist into this components list
+	// if true, return it
+	if (T* objectComponent = GetComponent<T>())
+		return *objectComponent;
+
+	// else, create a new component and return its reference to modify it
+	this->components.emplace_back(_component);
+
+	// When we add a new component, call the start method of it
+	_component->Start(*this);
+
+	return *_component;
+}
+
+template <typename T>
 T* GameObject::GetComponent() const
 {
 	static_assert(std::is_base_of<Component, T>::value, "T must inherit from Component");

@@ -31,6 +31,8 @@ public:
 	/// <param name="_c"></param>
 	/// <returns></returns>
 	OrcCharacter& operator=(OrcCharacter _c);
+	
+	bool IsAlive() override;
 #pragma endregion
 
 	

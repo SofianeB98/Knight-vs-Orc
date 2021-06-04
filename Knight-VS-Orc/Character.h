@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include "Stat.h"
+#include "Status.h"
 
 // Forward declaration
 class Status;
@@ -30,13 +31,6 @@ public:
 	/// </summary>
 	/// <param name="_c"></param>
 	Character(const Character& _c);
-
-	/// <summary>
-	/// = operator of character class
-	/// </summary>
-	/// <param name="c"></param>
-	/// <returns></returns>
-	Character& operator=(Character _c);
 #pragma endregion 
 
 	virtual ~Character();
@@ -61,6 +55,16 @@ public:
 	/// </summary>
 	/// <param name="_s"></param>
 	virtual void ApplyStatus(Status* _s);
+
+	/// <summary>
+	/// THis method Process all status for the specific type
+	/// </summary>
+	/// <param name="_statusType"></param>
+	virtual void ProcessStatus(StatusType _statusType);
+#pragma endregion 
+
+#pragma region Getter
+	virtual bool IsAlive() = 0;
 #pragma endregion 
 	
 	/// <summary>

@@ -49,6 +49,9 @@ public:
 	template <typename T>
 	T& AddComponent();
 
+	template <typename T>
+	T& AddComponent(T* _component);
+	
 	/// <summary>
 	/// Return the specified component type if exist
 	/// else return nullptr

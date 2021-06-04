@@ -4,11 +4,11 @@
 
 #include "Character.h"
 
-StunnedStatus::StunnedStatus() : Status(1, StatusType::BeginBattleTurn)
+StunnedStatus::StunnedStatus() : Status(1, StatusType::BeginBattleTurnProcess)
 {
 }
 
-StunnedStatus::StunnedStatus(int _durability) : Status(_durability, StatusType::BeginBattleTurn)
+StunnedStatus::StunnedStatus(int _durability) : Status(_durability, StatusType::BeginBattleTurnProcess)
 {
 }
 
