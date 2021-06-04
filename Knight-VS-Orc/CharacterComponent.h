@@ -36,7 +36,7 @@ public:
 	AbilityChoiceState GetAbilityChoice() const;
 #pragma endregion 
 	
-private:
+protected:
 	BattleManagerComponent& battleManager;
 	
 	Character* character;
