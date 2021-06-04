@@ -33,6 +33,7 @@ public:
 	OrcCharacter& operator=(OrcCharacter _c);
 	
 	bool IsAlive() override;
+	std::string GetCharacterInformation() override;
 #pragma endregion
 
 	

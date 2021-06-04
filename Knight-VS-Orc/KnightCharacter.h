@@ -60,5 +60,6 @@ protected:
 
 public:
 	bool IsAlive() override;
+	std::string GetCharacterInformation() override;
 private:
 };

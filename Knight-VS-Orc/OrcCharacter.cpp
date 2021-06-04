@@ -26,3 +26,18 @@ bool OrcCharacter::IsAlive()
 {
 	return this->life.GetValue() > 0;
 }
+
+std::string OrcCharacter::GetCharacterInformation()
+{
+	std::string info = "Orc\n";
+	info += "Life = " + std::to_string(this->life.GetValue()) + "\n";
+	info += "Ability = ";
+	if (this->ability->IsAvailable())
+		info += "available \n";
+	else
+		info += "reloading \n";
+
+	info += "Weapon = " + std::to_string(this->weapon->GetDamage()) + "\n";
+
+	return info;
+}

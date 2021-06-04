@@ -1,5 +1,7 @@
 ﻿#pragma once
 
+#include <string>
+
 #include "Stat.h"
 #include "Status.h"
 
@@ -66,6 +68,7 @@ public:
 #pragma region Getter
 	virtual bool IsAlive() = 0;
 	bool IsAbilityAvailable() const;
+	virtual std::string GetCharacterInformation() = 0;
 #pragma endregion 
 	
 	/// <summary>
