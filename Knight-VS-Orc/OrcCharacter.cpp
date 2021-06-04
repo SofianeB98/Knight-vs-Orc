@@ -5,10 +5,12 @@
 
 OrcCharacter::OrcCharacter() : Character(*new AxeWeapon, *new StunAbility)
 {
+	this->life = { 60 };
 }
 
 OrcCharacter::OrcCharacter(Weapon& _w, Ability& _a) : Character(_w, _a)
 {
+	this->life = { 60 };
 }
 
 OrcCharacter::OrcCharacter(const OrcCharacter& _c) : Character(_c)

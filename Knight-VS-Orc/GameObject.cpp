@@ -113,7 +113,7 @@ void GameObject::OnDisable()
 
 void GameObject::Destroy()
 {
-	for (auto& component : this->components)
+	for (auto& component: this->components)
 	{
 		if (component == nullptr)
 			continue;

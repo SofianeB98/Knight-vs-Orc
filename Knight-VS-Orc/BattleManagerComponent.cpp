@@ -27,17 +27,7 @@ BattleManagerComponent::BattleManagerComponent() : Component()
 
 BattleManagerComponent::~BattleManagerComponent()
 {
-	if (this->readyPlayerOne != nullptr)
-	{
-		delete this->readyPlayerOne;
-		this->readyPlayerOne = nullptr;
-	}
-
-	if (this->playerTwo != nullptr)
-	{
-		delete this->playerTwo;
-		this->playerTwo = nullptr;
-	}
+	// Player are deleted from GameObject class
 }
 
 
@@ -83,7 +73,7 @@ void BattleManagerComponent::Update(GameObject& _gameObject, double _dt)
 		break;
 		
 	case BattleState::AbilityChoice:
-		if(this->readyPlayerOne->GetAbilityChoice() != AbilityChoiceState::InProgress ||
+		if(this->readyPlayerOne->GetAbilityChoice() != AbilityChoiceState::InProgress &&
 			this->playerTwo->GetAbilityChoice() != AbilityChoiceState::InProgress)
 		{
 			std::cout << "All player has done there choice !" << std::endl;
