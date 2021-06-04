@@ -44,4 +44,6 @@ private:
 
 	CharacterComponent* readyPlayerOne;
 	CharacterComponent* playerTwo;
+
+	int currentTurn;
 };

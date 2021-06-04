@@ -17,6 +17,8 @@ BattleManagerComponent::BattleManagerComponent()
 
 
 	this->battleState = BattleState::StartBattle;
+
+	this->currentTurn = 0;
 }
 
 BattleManagerComponent::~BattleManagerComponent()
@@ -33,6 +35,7 @@ BattleManagerComponent::~BattleManagerComponent()
 		this->playerTwo = nullptr;
 	}
 }
+
 
 void BattleManagerComponent::OnEnable(GameObject& _gameObject)
 {
@@ -63,10 +66,14 @@ void BattleManagerComponent::Update(GameObject& _gameObject, double _dt)
 
 		
 	case BattleState::BeginTurn:
+		this->currentTurn++;
+		std::cout << "Begin turn " << this->currentTurn << std::endl;
+		
 		// Process status
 		p1.ProcessStatus(StatusType::BeginTurnProcess);
 		p2.ProcessStatus(StatusType::BeginTurnProcess);
-		
+
+		this->battleState = BattleState::AbilityChoice;
 		break;
 		
 	case BattleState::AbilityChoice:
@@ -135,6 +142,8 @@ void BattleManagerComponent::Update(GameObject& _gameObject, double _dt)
 		
 	//default: ;
 	}
+
+	
 }
 
 void BattleManagerComponent::OnDisable(GameObject& _gameObject)
