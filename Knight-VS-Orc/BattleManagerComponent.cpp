@@ -173,11 +173,24 @@ void BattleManagerComponent::PrintCharacterInformation(Character& c1, Character&
 
 	std::cout << c1.GetCharacterInformation() << std::endl;
 
-	coord.X = 20;
-	coord.Y = 0;
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+	std::string s = c2.GetCharacterInformation();
+	std::string delimiter = "\n";
 
-	std::cout << c2.GetCharacterInformation() << std::endl;
+	size_t pos = 0;
+	std::string token;
+	while ((pos = s.find(delimiter)) != std::string::npos) {
+		coord.X = 30;
+		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+		
+		token = s.substr(0, pos);
+		std::cout << token << std::endl;
+		s.erase(0, pos + delimiter.length());
+		
+		coord.Y += 1;
+	}
+	
+
+	//std::cout << c2.GetCharacterInformation() << std::endl;
 
 	coord.X = 0;
 	coord.Y = 8;
