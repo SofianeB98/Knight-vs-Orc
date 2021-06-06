@@ -31,11 +31,11 @@ Ability::Ability(const Ability& _a) : abilityCooldown(_a.abilityCooldown), actua
 {
 }
 
-Ability& Ability::operator=(Ability _a)
-{
-	swap(_a);
-	return *this;
-}
+//Ability& Ability::operator=(Ability _a)
+//{
+//	swap(_a);
+//	return *this;
+//}
 
 void Ability::swap(Ability& _a)
 {
@@ -43,7 +43,6 @@ void Ability::swap(Ability& _a)
 	std::swap(this->actualCooldown, _a.actualCooldown);
 	std::swap(this->abilitySuccessPercent, _a.abilitySuccessPercent);
 }
-
 
 
 bool Ability::IsAvailable() const
@@ -85,12 +84,17 @@ void Ability::ResetCooldown()
 	this->actualCooldown = this->abilityCooldown;
 }
 
-void Ability::Launch(Character& _c)
+//void Ability::Launch(Character& _c)
+//{
+//	
+//}
+
+bool Ability::CanLaunchAbility()
 {
 	if (!IsAvailable())
 	{
 		std::cout << "You're ability will be available in " << this->actualCooldown << " turn." << std::endl;
-		return;
+		return false;
 	}
 
 	// Launch a random wheel between 0 and 100
@@ -98,15 +102,16 @@ void Ability::Launch(Character& _c)
 
 	// Reset cooldown
 	ResetCooldown();
-	
+
 	// if wheel result is greater than ability success
-	if(wheel > this->abilitySuccessPercent)
+	if (wheel > this->abilitySuccessPercent)
 	{
 		std::cout << "Bad lucky. Ability launch failed" << std::endl;
-		return;
+		return false;
 	}
-	
+
 	// if wheel result is less (or equal) than ability success
 	// Perform ability
 	std::cout << "Success, Ability is launching !" << std::endl;
+	return true;
 }

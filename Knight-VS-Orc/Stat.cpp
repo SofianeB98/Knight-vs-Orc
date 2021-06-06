@@ -108,6 +108,8 @@ float Stat::CalculateRealValue() const
 
 void Stat::UpdateModifiers()
 {
+	auto previousModifierSize = this->modifiers.size();
+	
 	// Update all modifier durability
 	for (auto& mod : this->modifiers)
 		mod.UpdateModifierDurability();
@@ -118,6 +120,12 @@ void Stat::UpdateModifiers()
 			return sm.GetDurability() == 0;
 		});
 
+
 	// "Resize" the vector to remove useless removed value
 	this->modifiers.resize(std::distance(this->modifiers.begin(), removed));
+
+
+	if (previousModifierSize != this->modifiers.size())
+		this->isDirty = true;
+	
 }

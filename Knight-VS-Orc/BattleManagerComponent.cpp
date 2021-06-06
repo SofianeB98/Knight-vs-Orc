@@ -121,11 +121,10 @@ void BattleManagerComponent::Update(GameObject& _gameObject, double _dt)
 			std::cout << "\n" << std::endl;
 
 			PrintCharacterInformation(p1, p2, 20);
+			ResetTimerAndPrintedBool();
 
 			std::cout << "Take place for the FIGHT" << std::endl;
 			this->battleState = BattleState::FightProcess;
-
-			ResetTimerAndPrintedBool();
 		}
 
 
