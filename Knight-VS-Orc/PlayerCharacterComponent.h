@@ -12,4 +12,7 @@ public:
 	void Start(GameObject& _gameObject) override;
 	void Update(GameObject& _gameObject, double _dt) override;
 	void OnDisable(GameObject& _gameObject) override;
+
+	void GetChosenAbility();
+	int pressedInput = -1;
 };

@@ -30,9 +30,11 @@ StunnedStatus& StunnedStatus::operator=(StunnedStatus _s)
 
 void StunnedStatus::ProcessStatus(Character& _c, StatusType _processingType)
 {
-	// Call the base method who check if this status type equals the processing type
-	Status::ProcessStatus(_c, _processingType);
+	//Status::ProcessStatus(_c, _processingType);
 
+	if (this->statusType != _processingType)
+		return;
+	
 	// Apply status effect
 	std::cout << "You're stunned, you can't apply any damage." << std::endl;
 	_c.damageMultiplier.AddModifier({ StatModifierType::Multiplier, 0, 1000, 1 });

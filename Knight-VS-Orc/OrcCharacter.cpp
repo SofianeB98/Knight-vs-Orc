@@ -39,7 +39,7 @@ std::string OrcCharacter::GetCharacterInformation()
 	else
 		info += "reloading \n";
 
-	info += "Weapon = " + std::to_string(this->weapon->GetDamage()) + "\n";
+	info += "Weapon = " + std::to_string(this->weapon->GetDamage()) + "(x" + std::to_string(this->damageMultiplier.GetValue()) + ")" + "\n";
 
 	return info;
 }

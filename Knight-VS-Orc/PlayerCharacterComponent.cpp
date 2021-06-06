@@ -44,24 +44,11 @@ void PlayerCharacterComponent::Update(GameObject& _gameObject, double _dt)
 			this->abilityChoiceState = AbilityChoiceState::DontUseIt;
 			break;
 		}
-		
-		//if (_kbhit())
-		{
-			int ch = _getch();
-			//std::cout << ch << " as int : " << (int)ch << std::endl;
-			if (ch == 89 || ch == 121) // = Y/y
-			{
-				this->abilityChoiceState = AbilityChoiceState::UseIt;
-			}
-			else if (ch == 78 || ch == 110) // = N/n
-			{
-				this->abilityChoiceState = AbilityChoiceState::DontUseIt;
-			}
-		}
+		GetChosenAbility();
 		break;
 
 	case BattleState::AbilityProcess:
-		
+		this->pressedInput = -1;
 		break;
 
 	case BattleState::FightProcess:
@@ -82,4 +69,21 @@ void PlayerCharacterComponent::Update(GameObject& _gameObject, double _dt)
 
 void PlayerCharacterComponent::OnDisable(GameObject& _gameObject)
 {
+}
+
+void PlayerCharacterComponent::GetChosenAbility()
+{
+	//if (_kbhit())
+	{
+		this->pressedInput = _getch();
+		//std::cout << ch << " as int : " << (int)ch << std::endl;
+		if (this->pressedInput == 89 || this->pressedInput == 121) // = Y/y
+		{
+			this->abilityChoiceState = AbilityChoiceState::UseIt;
+		}
+		else if (this->pressedInput == 78 || this->pressedInput == 110) // = N/n
+		{
+			this->abilityChoiceState = AbilityChoiceState::DontUseIt;
+		}
+	}
 }

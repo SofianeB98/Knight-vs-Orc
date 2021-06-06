@@ -84,22 +84,22 @@ void BattleManagerComponent::Update(GameObject& _gameObject, double _dt)
 		break;
 
 	case BattleState::AbilityChoice:
-		if (this->readyPlayerOne->GetAbilityChoice() != AbilityChoiceState::InProgress &&
-			this->playerTwo->GetAbilityChoice() != AbilityChoiceState::InProgress)
-		{
-			std::cout << "All player has done there choice !" << std::endl;
-			this->battleState = BattleState::AbilityProcess;
-			ResetTimerAndPrintedBool();
-
-			break;
-		}
-
 		// print
 		if (!this->informationPrintedForCurrentState)
 		{
 			std::cout << "Do you want to use your Ability ? Y or N " << std::endl;
 			this->informationPrintedForCurrentState = true;
 		}
+
+		if (this->readyPlayerOne->GetAbilityChoice() != AbilityChoiceState::InProgress &&
+			this->playerTwo->GetAbilityChoice() != AbilityChoiceState::InProgress)
+		{
+			std::cout << "All player has done there choice !" << std::endl;
+			this->battleState = BattleState::AbilityProcess;
+			ResetTimerAndPrintedBool();
+			break;
+		}
+
 		break;
 
 	case BattleState::AbilityProcess:
@@ -109,7 +109,7 @@ void BattleManagerComponent::Update(GameObject& _gameObject, double _dt)
 			this->informationPrintedForCurrentState = true;
 
 			if (this->readyPlayerOne->GetAbilityChoice() == AbilityChoiceState::UseIt)
-				this->readyPlayerOne->UseAbility(*this->playerTwo);
+				this->readyPlayerOne->UseAbility(*this->readyPlayerOne);
 
 			if (this->playerTwo->GetAbilityChoice() == AbilityChoiceState::UseIt)
 				this->playerTwo->UseAbility(*this->readyPlayerOne);
