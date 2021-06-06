@@ -112,7 +112,7 @@ void Character::UseAbility(Character& _target)
 	if (this->ability == nullptr)
 		return;
 	
-	this->ability->Launch(_target);
+	this->ability->Launch(*this,  _target);
 }
 
 void Character::UseWeapon(Character& _target)

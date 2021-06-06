@@ -86,7 +86,7 @@ public:
 	/// Trigger this ability to the specific character
 	/// </summary>
 	/// <param name="_c"></param>
-	virtual void Launch(Character& _c) = 0;
+	virtual void Launch(Character& _abilityOwner, Character& _abilityTarget) = 0;
 	
 protected:
 	unsigned int abilityCooldown;

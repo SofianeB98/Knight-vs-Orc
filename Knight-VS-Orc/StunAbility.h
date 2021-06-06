@@ -43,5 +43,5 @@ public:
 	/// Add Stuned status to the target
 	/// </summary>
 	/// <param name="_c"></param>
-	virtual void Launch(Character& _c) override;
+	virtual void Launch(Character& _abilityOwner, Character& _abilityTarget) override;
 };

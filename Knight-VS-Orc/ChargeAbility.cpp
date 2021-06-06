@@ -25,7 +25,7 @@ ChargeAbility& ChargeAbility::operator=(ChargeAbility _a)
 
 
 
-void ChargeAbility::Launch(Character& _c)
+void ChargeAbility::Launch(Character& _abilityOwner, Character& _abilityTarget)
 {
 	// CanLaunchAbility method handle :
 	// - Ability available
@@ -35,6 +35,6 @@ void ChargeAbility::Launch(Character& _c)
 		return;
 
 	// Charge behavior
-	// Multiply by 2 the character damage for this turn
-	_c.damageMultiplier.AddModifier({ StatModifierType::Multiplier, 2.0f, 1 });
+	// Multiply by 2 the character owner damage for this turn
+	_abilityOwner.damageMultiplier.AddModifier({ StatModifierType::Multiplier, 2.0f, 1 });
 }

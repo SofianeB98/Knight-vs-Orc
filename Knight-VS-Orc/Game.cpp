@@ -32,20 +32,25 @@ void Game::Run()
 
 void Game::Update()
 {
+	// Game loop
 	while (!this->quitButtonPressed)
 	{
+		// Calculate delta time
 		this->currentTimePoint = std::chrono::high_resolution_clock::now();
 		this->elapsedTime = std::chrono::duration<double>(this->currentTimePoint - this->previousTimePoint).count();
 		this->previousTimePoint = this->currentTimePoint;
 
+		// Process quit input
+ 		this->quitButtonPressed = GetQuitButtonPressed();
+
+		// Update all gameobjects (and these components)
 		for (auto& gameObject : this->sceneObjects)
 		{
 			gameObject.second->Update(this->elapsedTime);
 		}
 
+		
 		std::this_thread::sleep_for(std::chrono::milliseconds(10));
-
-		this->quitButtonPressed = GetQuitButtonPressed();
 	}
 }
 
@@ -57,7 +62,7 @@ void Game::DeInitialize()
 		if (gameObject.second != nullptr)
 		{
 			delete gameObject.second;
-			this->sceneObjects[gameObject.first] = nullptr;
+			gameObject.second = nullptr;
 		}
 	}
 

@@ -26,7 +26,7 @@ StunAbility& StunAbility::operator=(StunAbility _a)
 
 
 
-void StunAbility::Launch(Character& _c)
+void StunAbility::Launch(Character& _abilityOwner, Character& _abilityTarget)
 {
 	// CanLaunchAbility method handle :
 	// - Ability available
@@ -36,5 +36,5 @@ void StunAbility::Launch(Character& _c)
 		return;
 
 	// Stun ability apply the stuned status to the target
-	_c.ApplyStatus(new StunnedStatus);
+	_abilityTarget.ApplyStatus(new StunnedStatus);
 }

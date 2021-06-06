@@ -109,7 +109,7 @@ void BattleManagerComponent::Update(GameObject& _gameObject, double _dt)
 			this->informationPrintedForCurrentState = true;
 
 			if (this->readyPlayerOne->GetAbilityChoice() == AbilityChoiceState::UseIt)
-				this->readyPlayerOne->UseAbility(*this->readyPlayerOne);
+				this->readyPlayerOne->UseAbility(*this->playerTwo);
 
 			if (this->playerTwo->GetAbilityChoice() == AbilityChoiceState::UseIt)
 				this->playerTwo->UseAbility(*this->readyPlayerOne);
@@ -180,7 +180,8 @@ void BattleManagerComponent::Update(GameObject& _gameObject, double _dt)
 	case BattleState::EndBattle:
 		if (!this->informationPrintedForCurrentState)
 		{
-			std::cout << "Battle finish ! A player is dead" << std::endl;
+			std::cout << "Battle finish !" << std::endl;
+			std::cout << (p1.IsAlive() ? "Ready Player One is the Winner !" : p2.IsAlive() ? "Player Two is the Winner !" : "All players is dead") << std::endl;
 			this->informationPrintedForCurrentState = true;
 		}
 		break;
@@ -232,5 +233,5 @@ void BattleManagerComponent::PrintCharacterInformation(Character& c1, Character&
 void BattleManagerComponent::ResetTimerAndPrintedBool()
 {
 	this->informationPrintedForCurrentState = false;
-	this->currentTimer = this->currentTimer >= this->waitingTimeBeforeNextStep ? this->currentTimer - this->waitingTimeBeforeNextStep : 0.0;
+	this->currentTimer = 0.0;
 }
