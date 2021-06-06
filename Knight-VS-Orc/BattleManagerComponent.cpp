@@ -182,6 +182,9 @@ void BattleManagerComponent::Update(GameObject& _gameObject, double _dt)
 		{
 			std::cout << "Battle finish !" << std::endl;
 			std::cout << (p1.IsAlive() ? "Ready Player One is the Winner !" : p2.IsAlive() ? "Player Two is the Winner !" : "All players is dead") << std::endl;
+
+			std::cout << "\n\nPress Escape to quit the game." << std::endl;
+
 			this->informationPrintedForCurrentState = true;
 		}
 		break;

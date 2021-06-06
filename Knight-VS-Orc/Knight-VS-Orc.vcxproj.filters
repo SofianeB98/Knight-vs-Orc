@@ -115,7 +115,7 @@
       <Filter>Fichiers sources\Component</Filter>
     </ClCompile>
     <ClCompile Include="IACharacterComponent.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Component</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
