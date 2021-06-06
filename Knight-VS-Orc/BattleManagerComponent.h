@@ -48,5 +48,11 @@ private:
 
 	int currentTurn;
 
-	void PrintCharacterInformation(Character& c1, Character& c2);
+	double currentTimer;
+	double waitingTimeBeforeNextStep = 3.0;
+
+	bool informationPrintedForCurrentState = false;
+	
+	void PrintCharacterInformation(Character& c1, Character& c2, int yOffset);
+	void ResetTimerAndPrintedBool();
 };

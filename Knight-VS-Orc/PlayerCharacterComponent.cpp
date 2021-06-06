@@ -34,8 +34,6 @@ void PlayerCharacterComponent::Update(GameObject& _gameObject, double _dt)
 	case BattleState::StartBattle:
 		break;
 
-		
-
 	case BattleState::BeginTurn:
 		this->abilityChoiceState = AbilityChoiceState::InProgress;
 		break;
@@ -47,9 +45,10 @@ void PlayerCharacterComponent::Update(GameObject& _gameObject, double _dt)
 			break;
 		}
 		
-		if (_kbhit())
+		//if (_kbhit())
 		{
-			const int ch = _getch();
+			int ch = _getch();
+			//std::cout << ch << " as int : " << (int)ch << std::endl;
 			if (ch == 89 || ch == 121) // = Y/y
 			{
 				this->abilityChoiceState = AbilityChoiceState::UseIt;
