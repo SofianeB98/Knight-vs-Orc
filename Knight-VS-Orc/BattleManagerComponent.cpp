@@ -5,6 +5,7 @@
 
 #include "Game.h"
 #include "GameObject.h"
+#include "IACharacterComponent.h"
 #include "KnightCharacter.h"
 
 #include "OrcCharacter.h"
@@ -18,7 +19,7 @@ BattleManagerComponent::BattleManagerComponent() : Component()
 	this->readyPlayerOne = &p1.AddComponent<PlayerCharacterComponent>(new PlayerCharacterComponent(*this, *new KnightCharacter));
 	
 	GameObject& p2 = Game::Get().CreateNewGameObject();
-	this->playerTwo = &p2.AddComponent<PlayerCharacterComponent>(new PlayerCharacterComponent(*this, *new OrcCharacter));
+	this->playerTwo = &p2.AddComponent<IACharacterComponent>(new IACharacterComponent(*this, *new OrcCharacter));
 
 	this->battleState = BattleState::StartBattle;
 
