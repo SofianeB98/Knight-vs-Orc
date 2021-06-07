@@ -3,6 +3,8 @@
 
 #include <conio.h>
 #include <iostream>
+#include <Windows.h>
+
 
 
 #include "BattleManagerComponent.h"
@@ -73,17 +75,8 @@ void PlayerCharacterComponent::OnDisable(GameObject& _gameObject)
 
 void PlayerCharacterComponent::GetChosenAbility()
 {
-	//if (_kbhit())
-	{
-		this->pressedInput = _getch();
-		//std::cout << ch << " as int : " << (int)ch << std::endl;
-		if (this->pressedInput == 89 || this->pressedInput == 121) // = Y/y
-		{
-			this->abilityChoiceState = AbilityChoiceState::UseIt;
-		}
-		else if (this->pressedInput == 78 || this->pressedInput == 110) // = N/n
-		{
-			this->abilityChoiceState = AbilityChoiceState::DontUseIt;
-		}
-	}
+	if(GetAsyncKeyState(0x59)) // = Y
+		this->abilityChoiceState = AbilityChoiceState::UseIt;
+	else if (GetAsyncKeyState(0x4E)) // = N
+		this->abilityChoiceState = AbilityChoiceState::DontUseIt;
 }
