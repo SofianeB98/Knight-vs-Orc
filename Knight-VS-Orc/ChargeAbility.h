@@ -43,5 +43,5 @@ public:
 	/// Multiply by 2 character damage
 	/// </summary>
 	/// <param name="_c"></param>
-	virtual void Launch(Character& _c) override;
+	virtual void Launch(Character& _abilityOwner, Character& _abilityTarget) override;
 };

@@ -39,7 +39,7 @@ public:
 	/// </summary>
 	/// <param name="a"></param>
 	/// <returns></returns>
-	Ability& operator=(Ability _a);
+	//Ability& operator=(Ability _a);
 #pragma endregion
 
 	virtual ~Ability() = default;
@@ -86,7 +86,7 @@ public:
 	/// Trigger this ability to the specific character
 	/// </summary>
 	/// <param name="_c"></param>
-	virtual void Launch(Character& _c);
+	virtual void Launch(Character& _abilityOwner, Character& _abilityTarget) = 0;
 	
 protected:
 	unsigned int abilityCooldown;
@@ -100,6 +100,8 @@ protected:
 	/// </summary>
 	/// <param name="_a"></param>
 	void swap(Ability& _a);
+
+	bool CanLaunchAbility();
 	
 private:
 	

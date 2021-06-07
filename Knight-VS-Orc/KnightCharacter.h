@@ -57,6 +57,9 @@ protected:
 	/// </summary>
 	/// <param name="_c=k"></param>
 	void swap(KnightCharacter& _k);
-	
+
+public:
+	bool IsAlive() override;
+	std::string GetCharacterInformation() override;
 private:
 };

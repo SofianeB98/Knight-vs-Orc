@@ -26,14 +26,15 @@ StunAbility& StunAbility::operator=(StunAbility _a)
 
 
 
-void StunAbility::Launch(Character& _c)
+void StunAbility::Launch(Character& _abilityOwner, Character& _abilityTarget)
 {
-	// Base launch method handle :
+	// CanLaunchAbility method handle :
 	// - Ability available
 	// - Wheel random to test if we can launch this ability (random between 0 and 100)
 	// we juste have to add the ability behavior
-	Ability::Launch(_c);
+	if (!CanLaunchAbility())
+		return;
 
 	// Stun ability apply the stuned status to the target
-	_c.ApplyStatus(new StunnedStatus);
+	_abilityTarget.ApplyStatus(new StunnedStatus);
 }

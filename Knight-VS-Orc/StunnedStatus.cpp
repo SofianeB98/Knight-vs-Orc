@@ -4,11 +4,11 @@
 
 #include "Character.h"
 
-StunnedStatus::StunnedStatus() : Status(1, StatusType::BeginBattleTurn)
+StunnedStatus::StunnedStatus() : Status(1, StatusType::BeginBattleTurnProcess)
 {
 }
 
-StunnedStatus::StunnedStatus(int _durability) : Status(_durability, StatusType::BeginBattleTurn)
+StunnedStatus::StunnedStatus(int _durability) : Status(_durability, StatusType::BeginBattleTurnProcess)
 {
 }
 
@@ -30,9 +30,11 @@ StunnedStatus& StunnedStatus::operator=(StunnedStatus _s)
 
 void StunnedStatus::ProcessStatus(Character& _c, StatusType _processingType)
 {
-	// Call the base method who check if this status type equals the processing type
-	Status::ProcessStatus(_c, _processingType);
+	//Status::ProcessStatus(_c, _processingType);
 
+	if (this->statusType != _processingType)
+		return;
+	
 	// Apply status effect
 	std::cout << "You're stunned, you can't apply any damage." << std::endl;
 	_c.damageMultiplier.AddModifier({ StatModifierType::Multiplier, 0, 1000, 1 });

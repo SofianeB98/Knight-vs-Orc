@@ -21,11 +21,6 @@ Character::Character(const Character& _c) : life(_c.life), damageMultiplier(_c.d
 {
 }
 
-Character& Character::operator=(Character _c)
-{
-	swap(_c);
-	return *this;
-}
 
 
 Character::~Character()
@@ -45,6 +40,11 @@ Character::~Character()
 	ClearStatus();
 }
 
+
+bool Character::IsAbilityAvailable() const
+{
+	return this->ability->IsAvailable();
+}
 
 void Character::UpdateCharacterFields()
 {
@@ -112,7 +112,7 @@ void Character::UseAbility(Character& _target)
 	if (this->ability == nullptr)
 		return;
 	
-	this->ability->Launch(_target);
+	this->ability->Launch(*this,  _target);
 }
 
 void Character::UseWeapon(Character& _target)
@@ -127,6 +127,14 @@ void Character::UseWeapon(Character& _target)
 void Character::ApplyStatus(Status* _s)
 {
 	this->status.emplace_back(_s);
+}
+
+void Character::ProcessStatus(StatusType _statusType)
+{
+	for(auto& s : this->status)
+		if(s != nullptr)
+			s->ProcessStatus(*this, _statusType);
+		
 }
 
 void Character::TakeDamage(float _damage)

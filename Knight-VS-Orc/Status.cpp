@@ -1,11 +1,11 @@
 ﻿#include "Status.h"
 #include "Character.h"
 
-Status::Status() : statusType(StatusType::BeginTurn), statusDurability(1), actualDurability(1)
+Status::Status() : statusType(StatusType::BeginTurnProcess), statusDurability(1), actualDurability(1)
 {
 }
 
-Status::Status(int _durability) : statusType(StatusType::BeginTurn), statusDurability(_durability), actualDurability(_durability)
+Status::Status(int _durability) : statusType(StatusType::BeginTurnProcess), statusDurability(_durability), actualDurability(_durability)
 {
 }
 

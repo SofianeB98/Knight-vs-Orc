@@ -2,9 +2,9 @@
 
 enum StatusType
 {
-	BeginTurn, // Process at the beginning of a turn
-	BeginBattleTurn, // Process before the battle turn
-	EndTurn, // Process at the end of a turn
+	BeginTurnProcess, // Process at the beginning of a turn
+	BeginBattleTurnProcess, // Process before the battle turn
+	EndTurnProcess, // Process at the end of a turn
 };
 
 class Character;

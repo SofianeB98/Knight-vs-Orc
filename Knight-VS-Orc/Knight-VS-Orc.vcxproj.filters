@@ -43,6 +43,12 @@
     <Filter Include="Fichiers sources\Status">
       <UniqueIdentifier>{2f07323e-a415-4fa4-a45e-5ffe905bc9bb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\Components">
+      <UniqueIdentifier>{b0f24181-b5a7-4d74-a7e4-80f0015cb66b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Component">
+      <UniqueIdentifier>{dbb39876-0302-494c-b671-270d60ab23ac}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Knight-VS-Orc.cpp">
@@ -90,6 +96,27 @@
     <ClCompile Include="StunAbility.cpp">
       <Filter>Fichiers sources\Abilities</Filter>
     </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>Fichiers sources\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterComponent.cpp">
+      <Filter>Fichiers sources\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="BattleManagerComponent.cpp">
+      <Filter>Fichiers sources\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerCharacterComponent.cpp">
+      <Filter>Fichiers sources\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="IACharacterComponent.cpp">
+      <Filter>Fichiers sources\Component</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character.h">
@@ -133,6 +160,27 @@
     </ClInclude>
     <ClInclude Include="StunnedStatus.h">
       <Filter>Fichiers d%27en-tête\Status</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>Fichiers d%27en-tête\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterComponent.h">
+      <Filter>Fichiers d%27en-tête\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="BattleManagerComponent.h">
+      <Filter>Fichiers d%27en-tête\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerCharacterComponent.h">
+      <Filter>Fichiers d%27en-tête\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="IACharacterComponent.h">
+      <Filter>Fichiers d%27en-tête\Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
