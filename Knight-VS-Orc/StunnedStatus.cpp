@@ -30,8 +30,7 @@ StunnedStatus& StunnedStatus::operator=(StunnedStatus _s)
 
 void StunnedStatus::ProcessStatus(Character& _c, StatusType _processingType)
 {
-	//Status::ProcessStatus(_c, _processingType);
-
+	// If processing tyoe isn't this status type, break
 	if (this->statusType != _processingType)
 		return;
 	

@@ -48,11 +48,23 @@ private:
 
 	int currentTurn;
 
+	// To simulate a wait
 	double currentTimer;
 	double waitingTimeBeforeNextStep = 3.0;
 
+	// Used to display only one time the state text
 	bool informationPrintedForCurrentState = false;
-	
+
+	/// <summary>
+	/// Display character stat, weapon and ability informations
+	/// </summary>
+	/// <param name="c1"></param>
+	/// <param name="c2"></param>
+	/// <param name="yOffset">to move the console cursor at the right pos</param>
 	void PrintCharacterInformation(Character& c1, Character& c2, int yOffset);
+
+	/// <summary>
+	/// Call when change the battle state to reset "Waiting time" + Printed bool
+	/// </summary>
 	void ResetTimerAndPrintedBool();
 };

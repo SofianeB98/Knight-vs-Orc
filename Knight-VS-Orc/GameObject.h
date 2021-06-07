@@ -30,6 +30,10 @@ friend class Component;
 	/// <param name="_dt"></param>
 	void Update(double _dt);
 
+	/// <summary>
+	/// Set the active state of a game object
+	/// </summary>
+	/// <param name="_val"></param>
 	void SetActive(bool _val);
 #pragma endregion 
 
@@ -63,11 +67,14 @@ friend class Component;
 #pragma endregion 
 	
 private:
-	bool isActive;
-	std::vector<Component*> components;
-
+	// Increment each time when a Game Object is created
+	// To assign Unique ID 
 	static unsigned int CURRENT_ID;
 	
+	bool isActive;
+	// Stock every component of this gameobject
+	std::vector<Component*> components;
+
 	unsigned int id;
 	
 	/// <summary>
@@ -94,6 +101,7 @@ private:
 template <typename T>
 T& GameObject::AddComponent()
 {
+	// Verify if T is a Component
 	static_assert(std::is_base_of<Component, T>::value, "T must inherit from Component");
 
 	// We search if the component exist into this components list

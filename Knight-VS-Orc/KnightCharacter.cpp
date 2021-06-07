@@ -31,6 +31,8 @@ void KnightCharacter::swap(KnightCharacter& _k)
 
 bool KnightCharacter::IsAlive()
 {
+
+	// If Shield OR Life is greater than 0, knight is alive
 	if (this->shield.GetValue() > 0)
 		return true;
 	

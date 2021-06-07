@@ -90,6 +90,7 @@ unsigned GameObject::GetId() const
 
 void GameObject::OnEnable()
 {
+	// Call back when enable this game object
 	for (auto& component : this->components)
 	{
 		if (component == nullptr)
@@ -101,6 +102,7 @@ void GameObject::OnEnable()
 
 void GameObject::OnDisable()
 {
+	// Call back when disable this game object
 	for (auto& component : this->components)
 	{
 		if (component == nullptr)
@@ -113,6 +115,7 @@ void GameObject::OnDisable()
 
 void GameObject::Destroy()
 {
+	//Delete all component of this game object
 	for (auto& component: this->components)
 	{
 		if (component == nullptr)

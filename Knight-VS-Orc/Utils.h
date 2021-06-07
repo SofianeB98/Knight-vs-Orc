@@ -17,8 +17,16 @@ struct Utils
 		return ((float)rand() / RAND_MAX) * (max - min) + min;
 	}
 
+	/// <summary>
+	/// Clamp the specific value between min and max
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="value"></param>
+	/// <param name="min"></param>
+	/// <param name="max"></param>
+	/// <returns></returns>
 	template<typename T>
-	static T Clamp(T min, T max, T value)
+	static T Clamp(T value, T min, T max)
 	{
 		return value > max ? max
 						   : value < min ? min

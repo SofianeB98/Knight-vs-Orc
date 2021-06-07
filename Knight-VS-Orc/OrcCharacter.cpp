@@ -24,10 +24,13 @@ OrcCharacter& OrcCharacter::operator=(OrcCharacter _c)
 	return *this;
 }
 
+
 bool OrcCharacter::IsAlive()
 {
+	// If orc life is greater than 0, return true
 	return this->life.GetValue() > 0;
 }
+
 
 std::string OrcCharacter::GetCharacterInformation()
 {

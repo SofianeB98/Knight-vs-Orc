@@ -35,6 +35,6 @@ void StunAbility::Launch(Character& _abilityOwner, Character& _abilityTarget)
 	if (!CanLaunchAbility())
 		return;
 
-	// Stun ability apply the stuned status to the target
+	// Stun ability apply the stunned status to the target
 	_abilityTarget.ApplyStatus(new StunnedStatus);
 }

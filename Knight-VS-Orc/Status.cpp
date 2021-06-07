@@ -1,5 +1,6 @@
 ﻿#include "Status.h"
 #include "Character.h"
+#include "Utils.h"
 
 Status::Status() : statusType(StatusType::BeginTurnProcess), statusDurability(1), actualDurability(1)
 {
@@ -17,11 +18,6 @@ Status::Status(const Status& _s) : statusType(_s.statusType), statusDurability(_
 {
 }
 
-Status& Status::operator=(Status _s)
-{
-	swap(_s);
-	return *this;
-}
 
 void Status::swap(Status& _s)
 {
@@ -34,6 +30,8 @@ void Status::swap(Status& _s)
 
 bool Status::IsTakingEffect() const
 {
+	// Return true if the actual durability is greater than 0
+	// That mean this status is active / enable
 	return this->actualDurability > 0;
 }
 
@@ -48,14 +46,6 @@ int Status::GetActualDurability() const
 }
 
 
-void Status::ProcessStatus(Character& _c, StatusType _processingType)
-{
-	if (this->statusType != _processingType)
-		return;
-	
-	//Do something
-}
-
 void Status::UpdateDurability()
 {
 	if (!this->IsTakingEffect())
@@ -66,10 +56,7 @@ void Status::UpdateDurability()
 
 void Status::ReduceDurability(int _reduceCount)
 {
-	if (_reduceCount > this->actualDurability)
-		_reduceCount = this->actualDurability;
-
-	this->actualDurability -= _reduceCount;
+	this->actualDurability -= Utils::Clamp(_reduceCount, 0, this->actualDurability);
 }
 
 void Status::ResetDurability()

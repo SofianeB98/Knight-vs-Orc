@@ -100,7 +100,7 @@ public:
 
 	/// <summary>
 	/// Remove 1 to durability
-	/// if set to -1, return
+	/// if set to -1 => return
 	/// </summary>
 	void UpdateModifierDurability();
 	

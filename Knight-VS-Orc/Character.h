@@ -12,6 +12,7 @@ class Ability;
 
 /// <summary>
 /// Character is the base class for every character like Knight, Orc, Healer, ...
+/// Inherit from this class to create a new character type
 /// </summary>
 class Character
 {
@@ -66,8 +67,18 @@ public:
 #pragma endregion 
 
 #pragma region Getter
+	/// <summary>
+	/// Return true if this character is alive, false if he is dead
+	/// </summary>
+	/// <returns></returns>
 	virtual bool IsAlive() = 0;
+
 	bool IsAbilityAvailable() const;
+	
+	/// <summary> 
+	/// Return a formatted string with character information to display its
+	/// </summary>
+	/// <returns></returns>
 	virtual std::string GetCharacterInformation() = 0;
 #pragma endregion 
 	

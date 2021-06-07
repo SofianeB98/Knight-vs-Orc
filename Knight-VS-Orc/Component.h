@@ -1,6 +1,10 @@
 ﻿#pragma once
 
 class GameObject;
+/// <summary>
+/// Base class for every component
+/// A component handle behavior for a gameobject
+/// </summary>
 class Component
 {
 public:

@@ -10,6 +10,10 @@ enum AbilityChoiceState
 
 class Character;
 class BattleManagerComponent;
+
+/// <summary>
+/// Base class of every CharacterComponent type (IA, player, ...)
+/// </summary>
 class CharacterComponent : public Component
 {
 public:

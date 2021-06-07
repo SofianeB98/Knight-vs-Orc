@@ -31,11 +31,6 @@ Ability::Ability(const Ability& _a) : abilityCooldown(_a.abilityCooldown), actua
 {
 }
 
-//Ability& Ability::operator=(Ability _a)
-//{
-//	swap(_a);
-//	return *this;
-//}
 
 void Ability::swap(Ability& _a)
 {
@@ -47,6 +42,7 @@ void Ability::swap(Ability& _a)
 
 bool Ability::IsAvailable() const
 {
+	// An ability is available when its cooldown is equal to 0
 	return this->actualCooldown == 0;
 }
 
@@ -64,19 +60,19 @@ unsigned Ability::GetActualCooldown() const
 
 void Ability::UpdateCooldown()
 {
+	// If this ability is available
+	// We don't reduce its cooldown
 	if (IsAvailable())
 		return;
 
+	// else reduce cooldown by 1
 	--this->actualCooldown;
 }
 
 void Ability::ReduceCooldown(unsigned int _reduceCount)
 {
-	// Clamp value to actual cooldown
-	if (_reduceCount > this->actualCooldown)
-		_reduceCount = this->actualCooldown;
-
-	this->actualCooldown -= _reduceCount;
+	// Clamp value to actual cooldown if necessary
+	this->actualCooldown -= Utils::Clamp((int)_reduceCount, 0, (int)this->actualCooldown);
 }
 
 void Ability::ResetCooldown()
@@ -84,13 +80,10 @@ void Ability::ResetCooldown()
 	this->actualCooldown = this->abilityCooldown;
 }
 
-//void Ability::Launch(Character& _c)
-//{
-//	
-//}
 
 bool Ability::CanLaunchAbility()
 {
+	// Check if this ability is available
 	if (!IsAvailable())
 	{
 		std::cout << "You're ability will be available in " << this->actualCooldown << " turn." << std::endl;
@@ -103,7 +96,7 @@ bool Ability::CanLaunchAbility()
 	// Reset cooldown
 	ResetCooldown();
 
-	// if wheel result is greater than ability success
+	// if wheel result is greater than ability success percent
 	if (wheel > this->abilitySuccessPercent)
 	{
 		std::cout << "Bad lucky. Ability launch failed" << std::endl;

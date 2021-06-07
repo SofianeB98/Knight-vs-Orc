@@ -41,6 +41,9 @@ void PlayerCharacterComponent::Update(GameObject& _gameObject, double _dt)
 		break;
 
 	case BattleState::AbilityChoice:
+		// If player ability is available
+		// He can choice if he wants to use it or not
+		
 		if (!this->character->IsAbilityAvailable())
 		{
 			this->abilityChoiceState = AbilityChoiceState::DontUseIt;
@@ -50,7 +53,6 @@ void PlayerCharacterComponent::Update(GameObject& _gameObject, double _dt)
 		break;
 
 	case BattleState::AbilityProcess:
-		this->pressedInput = -1;
 		break;
 
 	case BattleState::FightProcess:

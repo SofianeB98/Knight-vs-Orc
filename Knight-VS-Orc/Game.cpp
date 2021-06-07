@@ -13,21 +13,22 @@ Game* Game::instance = nullptr;
 
 void Game::Initialize()
 {
+	// Initialize time
 	this->previousTimePoint = std::chrono::high_resolution_clock::now();
 
+	// Create the Battle Manager game object
+	// and add Battle Manager Component to it
 	auto& battle = CreateNewGameObject();
 	battle.AddComponent<BattleManagerComponent>(new BattleManagerComponent);
 }
 
 void Game::Run()
 {
-	// Start ?
-	
+	// We can add callback, method, or anything else
+	// Before call update and after
 	
 	// Update
-	Update();
-
-	
+	Update();	
 }
 
 void Game::Update()
@@ -49,14 +50,16 @@ void Game::Update()
 			gameObject.second->Update(this->elapsedTime);
 		}
 
-		
-		//std::this_thread::sleep_for(std::chrono::milliseconds(10));
+		// If we've a render (3D, 2D, etc)
+		// We call the render method here
+		// Render()
 	}
 }
 
 
 void Game::DeInitialize()
 {
+	// Delete all game objects and these components
 	for(auto& gameObject : this->sceneObjects)
 	{
 		if (gameObject.second != nullptr)
@@ -67,7 +70,8 @@ void Game::DeInitialize()
 	}
 
 	this->sceneObjects.clear();
-	
+
+	// Delete game instance
 	if (Game::instance != nullptr)
 	{
 		delete Game::instance;
@@ -90,6 +94,8 @@ GameObject& Game::CreateNewGameObject()
 
 	this->sceneObjects.insert({ gameObject->GetId(), gameObject });
 
+	gameObject->Start();
+	
 	return *gameObject;
 }
 

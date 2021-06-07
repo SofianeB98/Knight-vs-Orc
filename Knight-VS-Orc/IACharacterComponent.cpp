@@ -29,6 +29,9 @@ void IACharacterComponent::Start(GameObject& _gameObject)
 
 void IACharacterComponent::Update(GameObject& _gameObject, double _dt)
 {
+	// IA Component is simple :
+	// If ability is available, return use it, else dont use it
+	
 	switch (this->battleManager.GetBattleState())
 	{
 	case BattleState::StartBattle:

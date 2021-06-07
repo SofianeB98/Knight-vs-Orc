@@ -11,6 +11,7 @@ class Character;
 
 /// <summary>
 /// Base class for every status
+/// To create new status, inherit from this class and override Constructor + ProcessStatus
 /// </summary>
 class Status
 {
@@ -40,13 +41,6 @@ public:
 	/// </summary>
 	/// <param name="_s"></param>
 	Status(const Status& _s);
-
-	/// <summary>
-	/// = Operator
-	/// </summary>
-	/// <param name="_s"></param>
-	/// <returns></returns>
-	Status& operator=(Status _s);
 #pragma endregion 
 
 	virtual ~Status() = default;
@@ -77,7 +71,7 @@ public:
 	/// </summary>
 	/// <param name="_c"></param>
 	/// <param name="_processingType"></param>
-	virtual void ProcessStatus(Character& _c, StatusType _processingType);
+	virtual void ProcessStatus(Character& _c, StatusType _processingType) = 0;
 	
 #pragma region Durability Method
 	/// <summary>

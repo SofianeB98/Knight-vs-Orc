@@ -40,7 +40,7 @@ public:
 
 	/// <summary>
 	/// Trigger this ability to the specific character
-	/// Multiply by 2 character damage
+	/// Multiply by 2 character owner damage
 	/// </summary>
 	/// <param name="_c"></param>
 	virtual void Launch(Character& _abilityOwner, Character& _abilityTarget) override;

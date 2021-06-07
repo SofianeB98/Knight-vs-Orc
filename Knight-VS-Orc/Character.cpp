@@ -55,8 +55,6 @@ void Character::UpdateCharacterFields()
 	// Update Ability cooldown
 	if(this->ability != nullptr)
 		this->ability->UpdateCooldown();
-
-	
 	
 	// Update Status cooldown
 	UpdateStatus();
@@ -64,6 +62,7 @@ void Character::UpdateCharacterFields()
 
 void Character::UpdateStatus()
 {
+	// For each status, update its durability
 	for (auto& st : status)
 	{
 		if(st != nullptr)
@@ -94,6 +93,7 @@ void Character::UpdateStatus()
 
 void Character::ClearStatus()
 {
+	// Delete all status
 	for (auto& st : this->status)
 	{
 		if (st != nullptr)
@@ -119,7 +119,8 @@ void Character::UseWeapon(Character& _target)
 {
 	if (this->weapon == nullptr)
 		return;
-	
+
+	// Before appliying damage, we calculate Weapon damage * Damage multiplier
 	const float damage = this->weapon->GetDamage() * this->damageMultiplier.GetValue();
 	_target.TakeDamage(damage);
 }
@@ -134,7 +135,6 @@ void Character::ProcessStatus(StatusType _statusType)
 	for(auto& s : this->status)
 		if(s != nullptr)
 			s->ProcessStatus(*this, _statusType);
-		
 }
 
 void Character::TakeDamage(float _damage)

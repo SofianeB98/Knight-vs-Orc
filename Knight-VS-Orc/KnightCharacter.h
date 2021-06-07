@@ -55,7 +55,7 @@ protected:
 	/// <summary>
 	/// Swap this class field with parameter value
 	/// </summary>
-	/// <param name="_c=k"></param>
+	/// <param name="_k"></param>
 	void swap(KnightCharacter& _k);
 
 public:

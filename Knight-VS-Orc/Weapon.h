@@ -1,6 +1,10 @@
 ﻿#pragma once
 #include "Stat.h"
 
+/// <summary>
+/// Base class for every weapon
+/// Inherit from this class, override constructor and add any method, field you want
+/// </summary>
 class Weapon
 {
 public:

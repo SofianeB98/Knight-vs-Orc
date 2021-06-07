@@ -15,6 +15,11 @@
 
 BattleManagerComponent::BattleManagerComponent() : Component()
 {
+	// When battle manager is created
+	// We create 2 players :
+	// Player 1 is a real Player with Knight class
+	// Player 2 is a simple IA with Orc Class
+	
 	GameObject& p1 = Game::Get().CreateNewGameObject();
 	this->readyPlayerOne = &p1.AddComponent<PlayerCharacterComponent>(new PlayerCharacterComponent(*this, *new KnightCharacter));
 
@@ -49,11 +54,14 @@ void BattleManagerComponent::Update(GameObject& _gameObject, double _dt)
 		return;
 	}
 
+	// Get Characters to handle method on it
 	Character& p1 = this->readyPlayerOne->GetCharacter();
 	Character& p2 = this->playerTwo->GetCharacter();
 
+	// Increment current timer
 	this->currentTimer += _dt;
 
+	
 	switch (this->battleState)
 	{
 	case BattleState::StartBattle:
@@ -70,27 +78,31 @@ void BattleManagerComponent::Update(GameObject& _gameObject, double _dt)
 
 		// Clear console for the new turn
 		system("CLS");
+		// Print character information
 		PrintCharacterInformation(p1, p2, 0);
 
 		std::cout << "Begin turn " << this->currentTurn << std::endl;
 
-		// Process status
+		// Process status with Begin turn type
 		p1.ProcessStatus(StatusType::BeginTurnProcess);
 		p2.ProcessStatus(StatusType::BeginTurnProcess);
 
+		// Reset timer and printed bool to the next state
 		ResetTimerAndPrintedBool();
 
+		// switch state
 		this->battleState = BattleState::AbilityChoice;
 		break;
 
 	case BattleState::AbilityChoice:
-		// print
+		// print information for this state
 		if (!this->informationPrintedForCurrentState)
 		{
 			std::cout << "Do you want to use your Ability ? Y or N " << std::endl;
 			this->informationPrintedForCurrentState = true;
 		}
 
+		// If all players are done there choice, go to the next state
 		if (this->readyPlayerOne->GetAbilityChoice() != AbilityChoiceState::InProgress &&
 			this->playerTwo->GetAbilityChoice() != AbilityChoiceState::InProgress)
 		{
@@ -103,11 +115,13 @@ void BattleManagerComponent::Update(GameObject& _gameObject, double _dt)
 		break;
 
 	case BattleState::AbilityProcess:
+		
 		if (!this->informationPrintedForCurrentState)
 		{
 			std::cout << "Players process there Ability ! (If its there choice)" << std::endl;
 			this->informationPrintedForCurrentState = true;
 
+			// Process Player 1 first, and next Player 2 ability (if ability state == Use it)
 			if (this->readyPlayerOne->GetAbilityChoice() == AbilityChoiceState::UseIt)
 				this->readyPlayerOne->UseAbility(*this->playerTwo);
 
@@ -115,7 +129,7 @@ void BattleManagerComponent::Update(GameObject& _gameObject, double _dt)
 				this->playerTwo->UseAbility(*this->readyPlayerOne);
 		}
 
-
+		// after a little waiting time, switch to next state
 		if (this->currentTimer >= this->waitingTimeBeforeNextStep)
 		{
 			std::cout << "\n" << std::endl;
@@ -131,7 +145,8 @@ void BattleManagerComponent::Update(GameObject& _gameObject, double _dt)
 		break;
 
 	case BattleState::FightProcess:
-
+		// We simulate a small animation delay before appliying
+		// Status Battle type + applying damage Player1 first then Player 2
 		if (this->currentTimer >= this->waitingTimeBeforeNextStep)
 		{
 			// Process status
@@ -150,7 +165,7 @@ void BattleManagerComponent::Update(GameObject& _gameObject, double _dt)
 		break;
 
 	case BattleState::EndTurn:
-		// Process status
+		// Process status with end turn type
 		p1.ProcessStatus(StatusType::EndTurnProcess);
 		p2.ProcessStatus(StatusType::EndTurnProcess);
 
@@ -169,8 +184,10 @@ void BattleManagerComponent::Update(GameObject& _gameObject, double _dt)
 			PrintCharacterInformation(p1, p2, 35);
 		}
 
+		// Wait a smal delay
 		if (this->currentTimer >= this->waitingTimeBeforeNextStep)
 		{
+			// if player 1  and player 2 is alive, continue the battle, else end the battle 
 			ResetTimerAndPrintedBool();
 			this->battleState = p1.IsAlive() && p2.IsAlive() ? BattleState::BeginTurn : BattleState::EndBattle;
 		}
@@ -204,20 +221,25 @@ BattleState BattleManagerComponent::GetBattleState() const
 
 void BattleManagerComponent::PrintCharacterInformation(Character& c1, Character& c2, int yOffset)
 {
+	// Display character information at the right position in the console
 	COORD coord;
 	coord.X = 0;
 	coord.Y = yOffset;
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 
+	// Player 1 information juste need an Y offset before displaying
 	std::cout << c1.GetCharacterInformation() << std::endl;
 
+	// Player 2 need an adjustement in X and Y
+	// We "split" the string by a delimiter, and each splitted value (= lines)
+	// is displayed with an y offset
 	std::string s = c2.GetCharacterInformation();
 	std::string delimiter = "\n";
 
 	size_t pos = 0;
 	std::string token;
+	coord.X = 30;
 	while ((pos = s.find(delimiter)) != std::string::npos) {
-		coord.X = 30;
 		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 
 		token = s.substr(0, pos);
@@ -227,6 +249,7 @@ void BattleManagerComponent::PrintCharacterInformation(Character& c1, Character&
 		coord.Y += 1;
 	}
 
+	// Finaly we move the cursor down of character's information
 	coord.X = 0;
 	coord.Y = yOffset + 8;
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);

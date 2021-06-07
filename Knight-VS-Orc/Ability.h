@@ -4,6 +4,8 @@ class Character;
 
 /// <summary>
 /// Ability class is the base class for all ability
+/// To create a new ability, just create a class which inherit from this and override Constructor and Launch method
+/// To have a base ability
 /// </summary>
 class Ability
 {
@@ -101,6 +103,12 @@ protected:
 	/// <param name="_a"></param>
 	void swap(Ability& _a);
 
+	/// <summary>
+	/// Return true if :
+	/// -> Ability is available
+	/// -> And if the random wheel return a good value
+	/// </summary>
+	/// <returns></returns>
 	bool CanLaunchAbility();
 	
 private:
