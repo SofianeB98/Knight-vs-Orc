@@ -1,6 +1,22 @@
 #include <iostream>
 
+#include "Game.h"
+
+// Main
 int main()
 {
-    std::cout << "Hello World!\n";
+	// Initialize the singleton
+	Game& app = Game::Get();
+
+	// Initalize the app
+	app.Initialize();
+
+	// Run the app (Update)
+	app.Run();
+
+	// Clear the app
+	app.DeInitialize();
+	
+	return 0;
+
 }

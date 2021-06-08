@@ -13,10 +13,174 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\Characters">
+      <UniqueIdentifier>{5531eb72-3050-48c7-86a4-1bbe3cc696b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Characters">
+      <UniqueIdentifier>{edbfb3b3-7e3f-4e7d-bc0f-a0ac7f8465ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Weapons">
+      <UniqueIdentifier>{7f1f93e6-8dfc-4c54-a5a6-6c7fc732f9aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Weapons">
+      <UniqueIdentifier>{51673bc8-1f2d-475b-a6f8-2217ef5e14cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Abilities">
+      <UniqueIdentifier>{3b42b42a-acb1-4b77-9e43-c1ad303e0141}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Abilities">
+      <UniqueIdentifier>{0e69786f-21a5-4fa0-879c-bb9c7c810b5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\StatSystem">
+      <UniqueIdentifier>{99da4871-c775-4c71-8f6c-362eff02ad66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\StatSystem">
+      <UniqueIdentifier>{617234d4-b808-4bb7-ae6b-10e4acd2a763}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Status">
+      <UniqueIdentifier>{9fd582b1-80e9-4966-8cb6-ebf2c54aa256}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Status">
+      <UniqueIdentifier>{2f07323e-a415-4fa4-a45e-5ffe905bc9bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Components">
+      <UniqueIdentifier>{b0f24181-b5a7-4d74-a7e4-80f0015cb66b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Component">
+      <UniqueIdentifier>{dbb39876-0302-494c-b671-270d60ab23ac}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Knight-VS-Orc.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>Fichiers sources\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="KnightCharacter.cpp">
+      <Filter>Fichiers sources\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="Weapon.cpp">
+      <Filter>Fichiers sources\Weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="SwordWeapon.cpp">
+      <Filter>Fichiers sources\Weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="Ability.cpp">
+      <Filter>Fichiers sources\Abilities</Filter>
+    </ClCompile>
+    <ClCompile Include="ChargeAbility.cpp">
+      <Filter>Fichiers sources\Abilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Stat.cpp">
+      <Filter>Fichiers sources\StatSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="StatModifier.cpp">
+      <Filter>Fichiers sources\StatSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Status.cpp">
+      <Filter>Fichiers sources\Status</Filter>
+    </ClCompile>
+    <ClCompile Include="OrcCharacter.cpp">
+      <Filter>Fichiers sources\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="AxeWeapon.cpp">
+      <Filter>Fichiers sources\Weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="StunnedStatus.cpp">
+      <Filter>Fichiers sources\Status</Filter>
+    </ClCompile>
+    <ClCompile Include="StunAbility.cpp">
+      <Filter>Fichiers sources\Abilities</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>Fichiers sources\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterComponent.cpp">
+      <Filter>Fichiers sources\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="BattleManagerComponent.cpp">
+      <Filter>Fichiers sources\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerCharacterComponent.cpp">
+      <Filter>Fichiers sources\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="IACharacterComponent.cpp">
+      <Filter>Fichiers sources\Component</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Character.h">
+      <Filter>Fichiers d%27en-tête\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="KnightCharacter.h">
+      <Filter>Fichiers d%27en-tête\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="Weapon.h">
+      <Filter>Fichiers d%27en-tête\Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="SwordWeapon.h">
+      <Filter>Fichiers d%27en-tête\Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="Ability.h">
+      <Filter>Fichiers d%27en-tête\Abilities</Filter>
+    </ClInclude>
+    <ClInclude Include="ChargeAbility.h">
+      <Filter>Fichiers d%27en-tête\Abilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Stat.h">
+      <Filter>Fichiers d%27en-tête\StatSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="StatModifier.h">
+      <Filter>Fichiers d%27en-tête\StatSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Status.h">
+      <Filter>Fichiers d%27en-tête\Status</Filter>
+    </ClInclude>
+    <ClInclude Include="OrcCharacter.h">
+      <Filter>Fichiers d%27en-tête\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="AxeWeapon.h">
+      <Filter>Fichiers d%27en-tête\Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="StunAbility.h">
+      <Filter>Fichiers d%27en-tête\Abilities</Filter>
+    </ClInclude>
+    <ClInclude Include="StunnedStatus.h">
+      <Filter>Fichiers d%27en-tête\Status</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>Fichiers d%27en-tête\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterComponent.h">
+      <Filter>Fichiers d%27en-tête\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="BattleManagerComponent.h">
+      <Filter>Fichiers d%27en-tête\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerCharacterComponent.h">
+      <Filter>Fichiers d%27en-tête\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="IACharacterComponent.h">
+      <Filter>Fichiers d%27en-tête\Components</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
