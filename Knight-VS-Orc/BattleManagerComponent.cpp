@@ -15,17 +15,6 @@
 
 BattleManagerComponent::BattleManagerComponent() : Component()
 {
-	// When battle manager is created
-	// We create 2 players :
-	// Player 1 is a real Player with Knight class
-	// Player 2 is a simple IA with Orc Class
-	
-	GameObject& p1 = Game::Get().CreateNewGameObject();
-	this->readyPlayerOne = &p1.AddComponent<PlayerCharacterComponent>(new PlayerCharacterComponent(*this, *new KnightCharacter));
-
-	GameObject& p2 = Game::Get().CreateNewGameObject();
-	this->playerTwo = &p2.AddComponent<IACharacterComponent>(new IACharacterComponent(*this, *new OrcCharacter));
-
 	this->battleState = BattleState::StartBattle;
 
 	this->currentTurn = 0;
@@ -45,6 +34,17 @@ void BattleManagerComponent::OnEnable(GameObject& _gameObject)
 void BattleManagerComponent::Start(GameObject& _gameObject)
 {
 	this->battleState = BattleState::StartBattle;
+	
+	// When battle manager is created
+	// We create 2 players :
+	// Player 1 is a real Player with Knight class
+	// Player 2 is a simple IA with Orc Class
+
+	GameObject& p1 = Game::Get().CreateNewGameObject();
+	this->readyPlayerOne = &p1.AddComponent<PlayerCharacterComponent>(new PlayerCharacterComponent(*this, *new KnightCharacter));
+
+	GameObject& p2 = Game::Get().CreateNewGameObject();
+	this->playerTwo = &p2.AddComponent<IACharacterComponent>(new IACharacterComponent(*this, *new OrcCharacter));
 }
 
 void BattleManagerComponent::Update(GameObject& _gameObject, double _dt)
