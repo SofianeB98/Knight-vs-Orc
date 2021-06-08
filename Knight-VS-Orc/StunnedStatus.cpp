@@ -28,7 +28,7 @@ StunnedStatus& StunnedStatus::operator=(StunnedStatus _s)
 
 
 
-void StunnedStatus::ProcessStatus(Character& _c, StatusType _processingType)
+void StunnedStatus::ProcessStatus(Character& _c, StatusType _processingType) const
 {
 	// If processing tyoe isn't this status type, break
 	if (this->statusType != _processingType)

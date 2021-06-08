@@ -3,16 +3,16 @@
 
 enum BattleState
 {
-	StartBattle,
+	StartBattle, // When a battle start, this is the first state which is triggered
 
-	BeginTurn,
+	BeginTurn, // Each time we perform a new turn and process specific status
 	
-	AbilityChoice,
-	AbilityProcess,
-	FightProcess,
-	CheckAlive,
+	AbilityChoice, // When players can choice if they want to use these ability
+	AbilityProcess, // Next to ability choice, use (if its possible) the ability
+	FightProcess, // Process specific status and apply some damage to other player
+	CheckAlive, // Before ending the turn, we check if all players are alive
 
-	EndTurn,
+	EndTurn, // if true, we end the turn, process specific status and next start a new turn
 	
 	EndBattle
 };
@@ -61,7 +61,7 @@ private:
 	/// <param name="c1"></param>
 	/// <param name="c2"></param>
 	/// <param name="yOffset">to move the console cursor at the right pos</param>
-	void PrintCharacterInformation(Character& c1, Character& c2, int yOffset);
+	void PrintCharacterInformation(Character& c1, Character& c2, int yOffset) const;
 
 	/// <summary>
 	/// Call when change the battle state to reset "Waiting time" + Printed bool

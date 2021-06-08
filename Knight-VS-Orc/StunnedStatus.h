@@ -44,5 +44,5 @@ public:
 	/// </summary>
 	/// <param name="_c"></param>
 	/// <param name="_processingType"></param>
-	virtual void ProcessStatus(Character& _c, StatusType _processingType) override;
+	virtual void ProcessStatus(Character& _c, StatusType _processingType) const override;
 };

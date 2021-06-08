@@ -66,12 +66,12 @@ public:
 #pragma endregion 
 
 	/// <summary>
-	/// Trying process this status into specific character
+	/// Trying process this status to a specific character
 	/// Status process if this type == processing type
 	/// </summary>
 	/// <param name="_c"></param>
 	/// <param name="_processingType"></param>
-	virtual void ProcessStatus(Character& _c, StatusType _processingType) = 0;
+	virtual void ProcessStatus(Character& _c, StatusType _processingType) const = 0;
 	
 #pragma region Durability Method
 	/// <summary>

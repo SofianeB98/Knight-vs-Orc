@@ -219,7 +219,7 @@ BattleState BattleManagerComponent::GetBattleState() const
 	return this->battleState;
 }
 
-void BattleManagerComponent::PrintCharacterInformation(Character& c1, Character& c2, int yOffset)
+void BattleManagerComponent::PrintCharacterInformation(Character& c1, Character& c2, int yOffset) const
 {
 	// Display character information at the right position in the console
 	COORD coord;

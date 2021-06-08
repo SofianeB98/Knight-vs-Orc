@@ -43,13 +43,14 @@ void PlayerCharacterComponent::Update(GameObject& _gameObject, double _dt)
 	case BattleState::AbilityChoice:
 		// If player ability is available
 		// He can choice if he wants to use it or not
-		
 		if (!this->character->IsAbilityAvailable())
 		{
 			this->abilityChoiceState = AbilityChoiceState::DontUseIt;
 			break;
 		}
-		GetChosenAbility();
+
+		if(this->abilityChoiceState == AbilityChoiceState::InProgress)
+			this->abilityChoiceState = WantToUseAbility();
 		break;
 
 	case BattleState::AbilityProcess:
@@ -75,10 +76,12 @@ void PlayerCharacterComponent::OnDisable(GameObject& _gameObject)
 {
 }
 
-void PlayerCharacterComponent::GetChosenAbility()
+AbilityChoiceState PlayerCharacterComponent::WantToUseAbility() const
 {
 	if(GetAsyncKeyState(0x59)) // = Y
-		this->abilityChoiceState = AbilityChoiceState::UseIt;
+		return AbilityChoiceState::UseIt;
 	else if (GetAsyncKeyState(0x4E)) // = N
-		this->abilityChoiceState = AbilityChoiceState::DontUseIt;
+		return AbilityChoiceState::DontUseIt;
+
+	return AbilityChoiceState::InProgress;
 }

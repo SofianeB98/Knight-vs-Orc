@@ -18,5 +18,5 @@ public:
 #pragma endregion
 	
 protected:
-	void GetChosenAbility();
+	AbilityChoiceState WantToUseAbility() const;
 };
