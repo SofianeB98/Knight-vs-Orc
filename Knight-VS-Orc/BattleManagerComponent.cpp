@@ -34,7 +34,7 @@ void BattleManagerComponent::OnEnable(GameObject& _gameObject)
 void BattleManagerComponent::Start(GameObject& _gameObject)
 {
 	this->battleState = BattleState::StartBattle;
-	
+
 	// When battle manager is created
 	// We create 2 players :
 	// Player 1 is a real Player with Knight class
@@ -61,7 +61,7 @@ void BattleManagerComponent::Update(GameObject& _gameObject, double _dt)
 	// Increment current timer
 	this->currentTimer += _dt;
 
-	
+
 	switch (this->battleState)
 	{
 	case BattleState::StartBattle:
@@ -75,13 +75,8 @@ void BattleManagerComponent::Update(GameObject& _gameObject, double _dt)
 
 	case BattleState::BeginTurn:
 		this->currentTurn++;
-
-		// Clear console for the new turn
-		system("CLS");
 		// Print character information
 		PrintCharacterInformation(p1, p2, 0);
-
-		std::cout << "Begin turn " << this->currentTurn << std::endl;
 
 		// Process status with Begin turn type
 		p1.ProcessStatus(StatusType::BeginTurnProcess);
@@ -115,9 +110,10 @@ void BattleManagerComponent::Update(GameObject& _gameObject, double _dt)
 		break;
 
 	case BattleState::AbilityProcess:
-		
+
 		if (!this->informationPrintedForCurrentState)
 		{
+			PrintCharacterInformation(p1, p2, 0);
 			std::cout << "Players process there Ability ! (If its there choice)" << std::endl;
 			this->informationPrintedForCurrentState = true;
 
@@ -134,10 +130,8 @@ void BattleManagerComponent::Update(GameObject& _gameObject, double _dt)
 		{
 			std::cout << "\n" << std::endl;
 
-			PrintCharacterInformation(p1, p2, 20);
+			//PrintCharacterInformation(p1, p2, 20);
 			ResetTimerAndPrintedBool();
-
-			std::cout << "Take place for the FIGHT" << std::endl;
 			this->battleState = BattleState::FightProcess;
 		}
 
@@ -145,14 +139,21 @@ void BattleManagerComponent::Update(GameObject& _gameObject, double _dt)
 		break;
 
 	case BattleState::FightProcess:
-		// We simulate a small animation delay before appliying
-		// Status Battle type + applying damage Player1 first then Player 2
-		if (this->currentTimer >= this->waitingTimeBeforeNextStep)
+		if (!this->informationPrintedForCurrentState)
 		{
 			// Process status
 			p1.ProcessStatus(StatusType::BeginBattleTurnProcess);
 			p2.ProcessStatus(StatusType::BeginBattleTurnProcess);
 
+			PrintCharacterInformation(p1, p2, 0);
+			std::cout << "Take place for the FIGHT" << std::endl;
+			this->informationPrintedForCurrentState = true;
+		}
+
+		// We simulate a small animation delay before appliying
+		// Status Battle type + applying damage Player1 first then Player 2
+		if (this->currentTimer >= this->waitingTimeBeforeNextStep)
+		{
 			// Fight
 			this->readyPlayerOne->UseWeapon(*this->playerTwo);
 			this->playerTwo->UseWeapon(*this->readyPlayerOne);
@@ -165,23 +166,28 @@ void BattleManagerComponent::Update(GameObject& _gameObject, double _dt)
 		break;
 
 	case BattleState::EndTurn:
-		// Process status with end turn type
-		p1.ProcessStatus(StatusType::EndTurnProcess);
-		p2.ProcessStatus(StatusType::EndTurnProcess);
+		if (this->currentTimer >= this->waitingTimeBeforeNextStep)
+		{
+			// Process status with end turn type
+			p1.ProcessStatus(StatusType::EndTurnProcess);
+			p2.ProcessStatus(StatusType::EndTurnProcess);
 
-		// Update fields, ...
-		p1.UpdateCharacterFields();
-		p2.UpdateCharacterFields();
+			// Update fields, ...
+			p1.UpdateCharacterFields();
+			p2.UpdateCharacterFields();
 
-		ResetTimerAndPrintedBool();
+			ResetTimerAndPrintedBool();
 
-		this->battleState = BattleState::CheckAlive;
+			this->battleState = BattleState::CheckAlive;
+		}
 		break;
 
 	case BattleState::CheckAlive:
 		if (!this->informationPrintedForCurrentState)
 		{
-			PrintCharacterInformation(p1, p2, 35);
+			PrintCharacterInformation(p1, p2, 0);
+			//PrintCharacterInformation(p1, p2, 35);
+			this->informationPrintedForCurrentState = true;
 		}
 
 		// Wait a smal delay
@@ -197,6 +203,8 @@ void BattleManagerComponent::Update(GameObject& _gameObject, double _dt)
 	case BattleState::EndBattle:
 		if (!this->informationPrintedForCurrentState)
 		{
+			PrintCharacterInformation(p1, p2, 0);
+
 			std::cout << "Battle finish !" << std::endl;
 			std::cout << (p1.IsAlive() ? "Ready Player One is the Winner !" : p2.IsAlive() ? "Player Two is the Winner !" : "All players is dead") << std::endl;
 
@@ -221,6 +229,8 @@ BattleState BattleManagerComponent::GetBattleState() const
 
 void BattleManagerComponent::PrintCharacterInformation(Character& c1, Character& c2, int yOffset) const
 {
+	system("CLS");
+
 	// Display character information at the right position in the console
 	COORD coord;
 	coord.X = 0;
@@ -253,6 +263,7 @@ void BattleManagerComponent::PrintCharacterInformation(Character& c1, Character&
 	coord.X = 0;
 	coord.Y = yOffset + 8;
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+	std::cout << "Turn " << this->currentTurn << std::endl;
 
 }
 

@@ -2,6 +2,7 @@
 
 #include "AxeWeapon.h"
 #include "StunAbility.h"
+#include "Utils.h"
 
 OrcCharacter::OrcCharacter() : Character(*new AxeWeapon, *new StunAbility)
 {
@@ -35,14 +36,14 @@ bool OrcCharacter::IsAlive()
 std::string OrcCharacter::GetCharacterInformation()
 {
 	std::string info = "Orc\n";
-	info += "Life = " + std::to_string(this->life.GetValue()) + "\n";
+	info += "Life = " + Utils::ToString(this->life.GetValue(), 1) + "\n";
 	info += "Ability = ";
 	if (this->ability->IsAvailable())
 		info += "available \n";
 	else
-		info += "reloading \n";
+		info += "reloading: " + Utils::ToString(this->ability->GetActualCooldown(), 0) + " Turn" + "\n";
 
-	info += "Weapon = " + std::to_string(this->weapon->GetDamage()) + "(x" + std::to_string(this->damageMultiplier.GetValue()) + ")" + "\n";
+	info += "Weapon = " + Utils::ToString(this->weapon->GetDamage(), 1) + "(x" + Utils::ToString(this->damageMultiplier.GetValue(), 1) + ")" + "\n";
 
 	return info;
 }

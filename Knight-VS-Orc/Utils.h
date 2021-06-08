@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <sstream>
 
 struct Utils
 {
@@ -31,6 +32,14 @@ struct Utils
 		return value > max ? max
 						   : value < min ? min
 										 : value;
+	}
+
+	static std::string ToString(double _value, int _precision)
+	{
+		std::ostringstream out;
+		out.precision(_precision);
+		out << std::fixed << _value;
+		return out.str();
 	}
 	
 private:
